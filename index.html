@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy 1 Year 1 Month ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 1 Year 2 Months ❤️</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       justify-content: center;
@@ -15,17 +14,12 @@
       flex-direction: column;
       text-align: center;
       min-height: 100vh;
-      color: #333;
-
-      /* Your couple photo as the main background */
       background: url('love.jpg') no-repeat center center fixed;
       background-size: cover;
-
-      /* Floral border using an overlay image */																																																												
+      color: #fff;
       position: relative;
-    }																																					
+    }
 
-    /* Decorative border using a frame image you provide */
     body::before {
       content: "";
       position: absolute;
@@ -33,35 +27,33 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('border.jpg') no-repeat center center;
-      background-size: cover;
-      pointer-events: none;
-      opacity: 0.6;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #d6336c;
-      margin-top: 50px;
-      animation: fadeIn 2s ease-in;
+      font-size: 2.8rem;
+      color: #ff5f8a;
+      margin: 20px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.5);
       z-index: 2;
+      animation: fadeIn 1.5s ease-in;
     }
 
     p {
-      font-size: 1.2rem;
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.6);
-      max-width: 600px;
-      margin: 20px auto;
-      animation: fadeIn 3s ease-in;
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 20px;
+      line-height: 1.6;
       z-index: 2;
+      animation: fadeIn 2s ease-in;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
 
     .heart {
-      font-size: 3rem;
-      animation: pulse 1.5s infinite;
-      color: #ff4d6d;
+      font-size: 3.5rem;
       margin-top: 20px;
+      animation: pulse 1.6s infinite;
       z-index: 2;
     }
 
@@ -72,35 +64,85 @@
       opacity: 0.15;
       font-size: 80px;
       font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 6px rgba(0,0,0,0.5);
+      z-index: 1;
       pointer-events: none;
-      color: white;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-      z-index: 2;
+    }
+
+    .switcher {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .switcher select {
+      background: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 6px;
+      margin-left: 6px;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.3); }
+      50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <h1>Happy 1 Year 1 Month, Anisha! ❤️</h1>
-  <p>
-    395 days of love, laughter, fights, crying and the most beautiful memories with you.  
-    Every day with you feels like a little piece of forever.  
-    Here’s to countless more months and years by your side. 💖
-  </p>
+  <div class="switcher">
+    <span>Message:</span>
+    <select id="msgSelect" aria-label="Choose message">
+      <option value="two-weeks" selected>Two Weeks Home</option>
+      <option value="romantic">Classic Romantic</option>
+      <option value="playful">Playful & Sweet</option>
+    </select>
+  </div>
+
+  <h1>Happy 1 Year 2 Months, Anisha! ❤️</h1>
+  <p id="message"></p>
 
   <div class="heart">❤️</div>
   <div class="watermark">S ♥ A</div>
 
+  <script>
+    const msgEl = document.getElementById('message');
+    const msgSelect = document.getElementById('msgSelect');
+
+    const messages = {
+      'two-weeks': `Fourteen months of us, my love — and two beautiful weeks spent by your side recently made it feel even more real.<br><br>
+      Waking up next to you, laughing, talking, and just living those days together was the happiest I’ve been.<br>
+      Every moment reminded me how much I want forever with you. 💖`,
+
+      'romantic': `Fourteen months of love, growth, and endless memories.<br><br>
+      No distance can dim what we share — you are my always, Anisha.<br>
+      Happy 1 year 2 months, my heart belongs to you. 💞`,
+
+      'playful': `Even with miles between us, my cutie cutie love, you’re the first thought in my mornings and the last smile at night.<br><br>
+      Happy 1 year 2 months — long distance can’t stop our sweetness. ❤️`
+    };
+
+    function applyMessage(key) {
+      msgEl.innerHTML = messages[key];
+      localStorage.setItem('anniv-msg', key);
+    }
+
+    const savedMsg = localStorage.getItem('anniv-msg') || 'two-weeks';
+    msgSelect.value = savedMsg;
+    applyMessage(savedMsg);
+
+    msgSelect.addEventListener('change', e => applyMessage(e.target.value));
+  </script>
 </body>
 </html>
