@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy 1 Year 2 Months ❤️</title>
+  <title>Happy 1 Year 3 Months ❤️</title>
   <style>
     body {
       margin: 0;
@@ -27,11 +27,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45);
       z-index: 0;
     }
 
-    /* Floral frame overlay */
     body::after {
       content: "";
       position: absolute;
@@ -41,35 +40,35 @@
       height: 100%;
       background: url('border.jpg') no-repeat center center;
       background-size: cover;
+      opacity: 0.55;
       pointer-events: none;
-      opacity: 0.6;
       z-index: 1;
     }
 
     h1 {
-      font-size: 2.8rem;
-      color: #ff5f8a;
+      font-size: 3rem;
+      color: #ff7da5;
       margin: 20px;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
       z-index: 2;
-      animation: fadeIn 1.5s ease-in;
       position: relative;
+      animation: fadeIn 1.4s ease-in;
     }
 
     p {
-      font-size: 1.3rem;
-      max-width: 700px;
+      font-size: 1.35rem;
+      max-width: 720px;
       margin: 20px;
-      line-height: 1.6;
+      line-height: 1.7;
       z-index: 2;
       animation: fadeIn 2s ease-in;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      text-shadow: 0 3px 8px rgba(0,0,0,0.6);
       position: relative;
     }
 
     .heart {
       font-size: 3.5rem;
-      margin-top: 20px;
+      margin-top: 25px;
       animation: pulse 1.6s infinite;
       z-index: 2;
       position: relative;
@@ -79,11 +78,11 @@
       position: fixed;
       bottom: 10px;
       right: 20px;
-      opacity: 0.15;
-      font-size: 80px;
+      opacity: 0.12;
+      font-size: 85px;
       font-weight: bold;
       color: #fff;
-      text-shadow: 0 0 6px rgba(0,0,0,0.5);
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
       z-index: 2;
       pointer-events: none;
     }
@@ -93,7 +92,7 @@
       top: 10px;
       right: 10px;
       z-index: 3;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.45);
       padding: 8px 12px;
       border-radius: 8px;
     }
@@ -107,7 +106,7 @@
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
 
@@ -122,33 +121,32 @@
   <div class="switcher">
     <span>Message:</span>
     <select id="msgSelect" aria-label="Choose message">
-      <option value="two-weeks" selected>1</option>
+      <option value="soft" selected>1</option>
       <option value="romantic">2</option>
-      <option value="playful">3</option>
+      <option value="dreamy">3</option>
     </select>
   </div>
 
-  <h1>Happy 1 Year 2 Months, Anisha! ❤️</h1>
+  <h1>Happy 1 Year 3 Months, My Love ❤️</h1>
   <p id="message"></p>
 
-  <div class="heart">❤️</div>
-  <div class="watermark">S ♥ A</div>
+  <div class="heart">💞</div>
+  <div class="watermark">S ♡ A</div>
 
   <script>
     const msgEl = document.getElementById('message');
     const msgSelect = document.getElementById('msgSelect');
 
     const messages = {
-      'two-weeks': `Fourteen months of us, my love — and two beautiful weeks spent by your side recently made it feel even more real.<br><br>
-      Waking up next to you, laughing, talking, and just living those days together was the happiest I’ve been.<br>
-      Every moment reminded me how much I want forever with you. 💖`,
+      'soft': `Fifteen months, my love — a chapter that feels calmer, deeper, and more like home. 💗<br><br>
+      Those two weeks together still live in my heart — every breakfast, smile, every quiet moment, every touch.<br>
+      No matter the distance now, I carry your warmth everywhere.`,
 
-      'romantic': `Fourteen months of love, growth, and endless memories.<br><br>
-      No distance can dim what we share — you are my always, Anisha.<br>
-      Happy 1 year 2 months, my heart belongs to you. 💞`,
+      'romantic': `One year and three months of us — and my heart still skips the same way it did on day one.<br><br>
+      Our story keeps unfolding beautifully, even from afar. You are my calm, my joy, and my forever favorite view. ❤️`,
 
-      'playful': `Even with miles between us, my cutie cutie love, you’re the first thought in my mornings and the last smile at night.<br><br>
-      Happy 1 year 2 months — long distance can’t stop our sweetness. 🌙❤️`
+      'dreamy': `Fifteen months of love, laughter, and little wishes whispered across miles. 💫<br><br>
+      You’re not just my person — you’re my peace, my reason to believe in good things .`
     };
 
     function applyMessage(key) {
@@ -156,7 +154,7 @@
       localStorage.setItem('anniv-msg', key);
     }
 
-    const savedMsg = localStorage.getItem('anniv-msg') || 'two-weeks';
+    const savedMsg = localStorage.getItem('anniv-msg') || 'soft';
     msgSelect.value = savedMsg;
     applyMessage(savedMsg);
 
