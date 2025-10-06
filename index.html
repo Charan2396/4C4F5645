@@ -61,9 +61,10 @@
       margin: 20px;
       line-height: 1.7;
       z-index: 2;
-      animation: fadeIn 2s ease-in;
+      opacity: 0;
       text-shadow: 0 3px 8px rgba(0,0,0,0.6);
       position: relative;
+      transition: opacity 1.2s ease-in;
     }
 
     .heart {
@@ -96,6 +97,7 @@
       padding: 8px 12px;
       border-radius: 8px;
     }
+
     .switcher select {
       background: #fff;
       border: none;
@@ -134,33 +136,37 @@
   <div class="watermark">S ♡ A</div>
 
   <script>
-    const msgEl = document.getElementById('message');
-    const msgSelect = document.getElementById('msgSelect');
+    document.addEventListener('DOMContentLoaded', () => {
+      const msgEl = document.getElementById('message');
+      const msgSelect = document.getElementById('msgSelect');
 
-    const messages = {
-      'soft': `Fifteen months, my love — a chapter that feels calmer, deeper, and more like home. 💗<br><br>
-      Those two weeks together still live in my heart — every breakfast, smile, every quiet moment, every touch.<br>
-      No matter the distance now, I carry your warmth everywhere.`,
+      const messages = {
+        'soft': `Fifteen months, my cutie pie - a chapter that feels calmer, deeper, and more like home. 💗<br><br>
+        Those two weeks together still live in my heart - every breakfast, smile, every quiet moment, every touch.<br>
+        No matter the distance now, I carry your warmth everywhere.`,
 
-      'romantic': `One year and three months of us — and my heart still skips the same way it did on day one.<br><br>
-      Our story keeps unfolding beautifully, even from afar. You are my calm, my joy, and my forever favorite view. ❤️`,
+        'romantic': `One year and three months of us - and my heart still skips the same way it did on day one.<br><br>
+        Our story keeps unfolding beautifully, even from so much distance. You are my calm, my joy, and my forever favorite view. ❤️`,
 
-      'dreamy': `Fifteen months of love, laughter, and little wishes whispered across miles. 💫<br><br>
-      You’re not just my person — you’re my peace, my reason to believe in good things .`
-    };
+        'dreamy': `Fifteen months of love, laughter, and little wishes whispered across miles. 💫<br><br>
+        You’re not just my person - you’re my peace, my reason to believe that good things exist.`
+      };
 
-    function applyMessage(key) {
-      msgEl.innerHTML = messages[key];
-      localStorage.setItem('anniv-msg', key);
-    }
+      function applyMessage(key) {
+        msgEl.style.opacity = 0;
+        setTimeout(() => {
+          msgEl.innerHTML = messages[key];
+          msgEl.style.opacity = 1;
+          localStorage.setItem('anniv-msg', key);
+        }, 200);
+      }
 
-    const savedMsg = localStorage.getItem('anniv-msg') || 'soft';
-    msgSelect.value = savedMsg;
-    applyMessage(savedMsg);
+      const savedMsg = localStorage.getItem('anniv-msg') || 'soft';
+      msgSelect.value = savedMsg;
+      applyMessage(savedMsg);
 
-    msgSelect.addEventListener('change', e => applyMessage(e.target.value));
+      msgSelect.addEventListener('change', e => applyMessage(e.target.value));
+    });
   </script>
 </body>
 </html>
-
-
