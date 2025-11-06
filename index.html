@@ -129,39 +129,42 @@
   <div class="heart">💞</div>
   <div class="watermark">S ♡ A</div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const msgEl = document.getElementById('message');
-      const msgSelect = document.getElementById('msgSelect');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const msgEl = document.getElementById('message');
+    const msgSelect = document.getElementById('msgSelect');
 
-      const messages = {
-        "1": `Sixteen months, my cutie. Remembering last year when you were here with me - slow mornings, silly jokes, kissies 💗<br><br>
-        We’re apart again, but I’m still warm from you. I love you, today and all the days.`,
+    const messages = {
+      "1": `Sixteen months, my cutie. Remembering last year when you were here with me - slow mornings, breakfasts, silly jokes, kissies 💗<br><br>
+      We’re apart again, but I’m still warm from you. I love you, today and all the days.`,
 
-        "2": `One year and four months and I still get that tiny heart-jump when I see your messages. ❤️<br><br>
-        Your laugh is my favorite sound. Your texts are my tiny fireworks. I pick you, every time.`,
+      "2": `One year and four months and I still get that tiny heart-jump when I see your messages. ❤️<br><br>
+      Your laugh is my favorite sound. Your texts are my tiny fireworks. I pick you, every time.`,
 
-        "3": `16 months of texts, midnight calls, saved photos, and daydreams. ✨<br><br>
-        One day: same couch, same spoon, same sunrise. Until then, I’m yours-always.`
-      };
+      "3": `16 months of texts, midnight calls, saved photos, and daydreams. ✨<br><br>
+      One day: same couch, same spoon, same sunrise, same sunset. Until then, I’m yours - always.`
+    };
 
-      function applyMessage(key) {
-        msgEl.style.opacity = 0;
-        setTimeout(() => {
-          msgEl.innerHTML = messages[key];
-          msgEl.style.opacity = 1;
-          localStorage.setItem('anniv-msg-16', key);
-        }, 200);
-      }
+    function applyMessage(key) {
+      msgEl.style.opacity = 0;
+      setTimeout(() => {
+        msgEl.innerHTML = messages[key];
+        msgEl.style.opacity = 1;
+        localStorage.setItem('anniv-msg-16', key);
+      }, 200);
+    }
 
-      const savedMsg = localStorage.getItem('anniv-msg-16') || 'soft';
-      msgSelect.value = savedMsg;
-      applyMessage(savedMsg);
+    // fix: default to "1" instead of "soft"
+    const savedMsg = localStorage.getItem('anniv-msg-16') || "1";
+    msgSelect.value = savedMsg;
+    applyMessage(savedMsg);
 
-      msgSelect.addEventListener('change', e => applyMessage(e.target.value));
-    });
-  </script>
+    msgSelect.addEventListener('change', e => applyMessage(e.target.value));
+  });
+</script>
+
 </body>
 </html>
+
 
 
