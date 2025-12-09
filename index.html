@@ -2,34 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 1 Year 5 Months ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <style>
     body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  min-height: 100vh;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45)),
-    url('loveB.jpg') center/cover no-repeat,
-    url('loveA.jpg') center/cover no-repeat fixed;
-
-  background-blend-mode: normal, soft-light, normal;
-  color: #fff;
-  position: relative;
-}
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      min-height: 100vh;
+      background: url('loveA.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+      transition: background-image 1.2s ease-in-out;
+    }
 
     body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.50);
       z-index: 0;
     }
 
@@ -51,7 +48,6 @@
       text-shadow: 0 4px 10px rgba(0,0,0,0.6);
       z-index: 2;
       position: relative;
-      animation: fadeIn 1.4s ease-in;
     }
 
     p {
@@ -63,7 +59,7 @@
       opacity: 0;
       text-shadow: 0 3px 8px rgba(0,0,0,0.6);
       position: relative;
-      transition: opacity 1.2s ease-in;
+      transition: opacity 0.8s ease-in;
     }
 
     .heart {
@@ -71,7 +67,6 @@
       margin-top: 25px;
       animation: pulse 1.6s infinite;
       z-index: 2;
-      position: relative;
     }
 
     .watermark {
@@ -82,7 +77,6 @@
       font-size: 85px;
       font-weight: bold;
       color: #fff;
-      text-shadow: 0 0 10px rgba(0,0,0,0.6);
       z-index: 2;
       pointer-events: none;
     }
@@ -102,7 +96,6 @@
       border: none;
       border-radius: 4px;
       padding: 4px 6px;
-      margin-left: 6px;
     }
 
     @keyframes pulse {
@@ -110,91 +103,83 @@
       50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
+
 <body>
 
   <div class="switcher">
-    <span>Message:</span>
-    <select id="msgSelect" aria-label="Choose message">
-      <option value="1" selected>1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+    <select id="msgSelect">
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
       <option value="10">10</option>
     </select>
   </div>
 
-  <h1>Happy 1 Year 5 Months, My cutie love ❤️</h1>
+  <h1>Happy 1 Year 5 Months, My Love ❤️</h1>
   <p id="message"></p>
-
   <div class="heart">💞</div>
   <div class="watermark">S ♡ A</div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const messages = {
+    "1": `Seventeen months with you, and I still can't believe I got this lucky. 💗<br><br>
+          Thank you for choosing me, for staying, for loving me on my good and messy days.`,
+
+    "2": `Every day with you feels like a tiny miracle I didn’t know I was allowed to have. ❤️<br><br>
+          Thank you for being my safest place, even from miles away.`,
+
+    "3": `17 months of your voice, your rants, your sleepy face on video calls. ✨<br><br>
+          I’m so, so grateful that out of everyone on this planet, I get to love you.`,
+
+    "4": `Sometimes I pause and think, “How did I get you?” and my brain just goes: jackpot. 🎰💖<br><br>
+          Thank you for existing exactly the way you are. I wouldn’t change a thing.`,
+
+    "5": `You’re my favorite notification, my favorite “ping”. 📱💞<br><br>
+          Thank you for making my ordinary days feel like something worth remembering.`,
+
+    "6": `I’m proud of you. Grateful for you. Hard for you. Stupidly in love with you. 🫶<br><br>
+          1 year 5 months later, you’re still the best decision I keep making and will keep making.`,
+
+    "7": `Thank you for holding my feelings so gently, even when I overthink, worry, or spiral. 🌙<br><br>
+          I’m lucky I get to grow, heal, and dream next to a heart like yours.`,
+
+    "8": `Sometimes I want to hug the past version of me and whisper, “You have no idea how beautiful it’s about to get.” 🌸<br><br>
+          Because you were coming. And I’m so grateful you did.`,
+
+    "9": `I’m thankful for your patience, your love, your tiny “text me when you reach” habits. 💌<br><br>
+          Thank you for being the safe cautious girl worrying about chonks and checking my dandruff always.`,
+
+    "10": `To my favorite human: thank you for loving me, for staying with me, for being my home. 🏡❤️<br><br>
+           17 months down, a lifetime to go. I’m so lucky it’s you. Will always be your chonk.`
+  };
+
+  function applyMessage(key) {
     const msgEl = document.getElementById('message');
-    const msgSelect = document.getElementById('msgSelect');
+    msgEl.style.opacity = 0;
 
-    const messages = {
-      "1": `Seventeen months with you, and I still can't believe I got this lucky. 💗<br><br>
-      Thank you for choosing me, for staying, for loving me on my good and messy days.`,
+    setTimeout(() => {
+      msgEl.innerHTML = messages[key];
+      msgEl.style.opacity = 1;
 
-      "2": `Every day with you feels like a tiny miracle I didn’t know I was allowed to have. ❤️<br><br>
-      Thank you for being my safest place, even from miles away.`,
+  
+      document.body.style.backgroundImage =
+        (key % 2 === 0)
+          ? "url('loveB.jpg')"
+          : "url('loveA.jpg')";
 
-      "3": `17 months of your voice, your rants, your sleepy face on video calls. ✨<br><br>
-      I’m so, so grateful that out of everyone on this planet, I get to love you.`,
+      localStorage.setItem('anniv-msg-17', key);
+    }, 300);
+  }
 
-      "4": `Sometimes I pause and think, “How did I get you?” and my brain just goes: jackpot. 🎰💖<br><br>
-      Thank you for existing exactly the way you are. I wouldn’t change a thing.`,
+  const select = document.getElementById('msgSelect');
+  const saved = localStorage.getItem('anniv-msg-17') || "1";
+  select.value = saved;
+  applyMessage(saved);
 
-      "5": `You’re my favorite notification, my favorite “ping””. 📱💞<br><br>
-      Thank you for making my ordinary days feel like something worth remembering.`,
-
-      "6": `I’m proud of you. Grateful for you. Hard for you. Stupidly in love with you. 🫶<br><br>
-      1 year 5 months later, you’re still the best decision I keep making.`,
-
-      "7": `Thank you for holding my feelings so gently, even when I overthink, worry, or spiral. 🌙<br><br>
-      I’m lucky I get to grow, heal, and dream next to a heart like yours.`,
-
-      "8": `Sometimes I want to hug the past version of me and whisper, “You have no idea how beautiful it’s about to get.” 🌸<br><br>
-      Because you were coming. And I’m so grateful you did.`,
-
-      "9": `I’m thankful for your patience, your love, your tiny “text me when you reach” habits. 💌<br><br>
-      Thank you for being the safe cautious girl worrying about chonks and checking my dandruff always`,
-
-      "10": `To my favorite human: thank you for loving me, for staying with me, for being my home. 🏡❤️<br><br>
-      17 months down, a lifetime to go. I’m so lucky it’s you. Will always be your chonk`
-    };
-
-    function applyMessage(key) {
-      msgEl.style.opacity = 0;
-      setTimeout(() => {
-        msgEl.innerHTML = messages[key];
-        msgEl.style.opacity = 1;
-        localStorage.setItem('anniv-msg-17', key);
-      }, 200);
-    }
-
-    const savedMsg = localStorage.getItem('anniv-msg-17') || "1";
-    msgSelect.value = savedMsg;
-    applyMessage(savedMsg);
-
-    msgSelect.addEventListener('change', e => applyMessage(e.target.value));
-  });
+  select.addEventListener('change', e => applyMessage(e.target.value));
 </script>
 
 </body>
 </html>
-
