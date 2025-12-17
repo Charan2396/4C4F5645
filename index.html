@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy 1 Year 5 Months ❤️</title>
+  <title>Here, With You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
@@ -26,7 +26,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.50);
+      background: rgba(0,0,0,0.55);
       z-index: 0;
     }
 
@@ -36,35 +36,51 @@
       inset: 0;
       background: url('border.jpg') no-repeat center center;
       background-size: cover;
-      opacity: 0.55;
+      opacity: 0.5;
       pointer-events: none;
       z-index: 1;
     }
 
     h1 {
-      font-size: 3rem;
-      color: #ff7da5;
+      font-size: 2.8rem;
+      color: #ff8fb3;
       margin: 20px;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
       z-index: 2;
-      position: relative;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
     }
 
     p {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       max-width: 720px;
-      margin: 20px;
+      margin: 18px;
       line-height: 1.7;
-      z-index: 2;
       opacity: 0;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.6);
-      position: relative;
       transition: opacity 0.8s ease-in;
+      z-index: 2;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    }
+
+    .photo-frame {
+      width: 280px;
+      height: 280px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      z-index: 2;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
+      opacity: 1;
     }
 
     .heart {
-      font-size: 3.5rem;
-      margin-top: 25px;
+      font-size: 3.2rem;
+      margin-top: 22px;
       animation: pulse 1.6s infinite;
       z-index: 2;
     }
@@ -74,9 +90,20 @@
       bottom: 10px;
       right: 20px;
       opacity: 0.12;
-      font-size: 85px;
+      font-size: 80px;
       font-weight: bold;
-      color: #fff;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hidden-note {
+      position: fixed;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      opacity: 0.08;
+      letter-spacing: 1px;
       z-index: 2;
       pointer-events: none;
     }
@@ -100,7 +127,7 @@
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.25); }
+      50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
   </style>
@@ -117,64 +144,99 @@
     </select>
   </div>
 
-  <h1>Happy 1 Year 5 Months, My Love ❤️</h1>
+  <h1>Here, With You ❤️</h1>
+
+  <div class="photo-frame">
+    <img id="photo" src="p1.jpg" alt="Photo" />
+  </div>
+
   <p id="message"></p>
+
   <div class="heart">💞</div>
   <div class="watermark">S ♡ A</div>
+  <div class="hidden-note">Nothing about us is fragile.</div>
 
 <script>
   const messages = {
-    "1": `Seventeen months with you, and I still can't believe I got this lucky. 💗<br><br>
-          Thank you for choosing me, for staying, for loving me on my good and messy days.`,
+    "1": `I know things feel heavier right now. I wish I could take that weight from you and hold it myself.<br><br>
+          Since I can’t, I want you to know this, you don’t have to carry it alone.`,
 
-    "2": `Every day with you feels like a tiny miracle I didn’t know I was allowed to have. ❤️<br><br>
-          Thank you for being my safest place, even from miles away.`,
+    "2": `Some days don’t need fixing. They just need company, and I am coming soon to cutie<br><br>
+          This is me sitting beside you, quietly, not going anywhere.`,
 
-    "3": `17 months of your voice, your rants, your sleepy face on video calls. ✨<br><br>
-          I’m so, so grateful that out of everyone on this planet, I get to love you.`,
+    "3": `Even when you feel tired, unsure, or disappointed, you are still everything good to me.<br><br>
+          Nothing about you has changed in my eyes.`,
 
-    "4": `Sometimes I pause and think, “How did I get you?” and my brain just goes: jackpot. 🎰💖<br><br>
-          Thank you for existing exactly the way you are. I wouldn’t change a thing.`,
+    "4": `I don’t love you because things are easy or perfectly timed.<br><br>
+          I love you because it’s you. That part is steady.`,
 
-    "5": `You’re my favorite notification, my favorite “ping”. 📱💞<br><br>
-          Thank you for making my ordinary days feel like something worth remembering.`,
+    "5": `There’s no pressure to be strong here. No need to smile through anything.<br><br>
+          You’re allowed to feel exactly how you feel with me. Always`,
 
-    "6": `I’m proud of you. Grateful for you. Hard for you. Stupidly in love with you. 🫶<br><br>
-          1 year 5 months later, you’re still the best decision I keep making and will keep making.`,
+    "6": `When plans change, it’s natural to feel shaken.<br><br>
+          Just remember: what we’re standing on hasn’t moved.`,
 
-    "7": `Thank you for holding my feelings so gently, even when I overthink, worry, or spiral. 🌙<br><br>
-          I’m lucky I get to grow, heal, and dream next to a heart like yours.`,
+    "7": `If today feels slow or unfair, let it be.<br><br>
+          We don’t lose ground by pausing. We just breathe.`,
 
-    "8": `Sometimes I want to hug the past version of me and whisper, “You have no idea how beautiful it’s about to get.” 🌸<br><br>
-          Because you were coming. And I’m so grateful you did.`,
+    "8": `I still choose you in quiet moments, not just happy ones.<br><br>
+          Especially the sad and quiet ones.`,
 
-    "9": `I’m thankful for your patience, your love, your tiny “text me when you reach” habits. 💌<br><br>
-          Thank you for being the safe cautious girl worrying about chonks and checking my dandruff always.`,
+    "9": `Nothing meaningful about us depends on a calendar or a date.<br><br>
+          What matters is that we keep showing up.`,
 
-    "10": `To my favorite human: thank you for loving me, for staying with me, for being my home. 🏡❤️<br><br>
-           17 months down, a lifetime to go. I’m so lucky it’s you. Will always be your chonk.`
+    "10": `No matter what this looks like, I’m here. Calm. Certain. Your chonks.<br><br>
+           We’ll keep walking forward. Together.`
+  };
+
+  // Map each message number -> photo file
+  const messagePhotos = {
+    "1": "p1.jpg",
+    "2": "p2.jpg",
+    "3": "p3.jpg",
+    "4": "p4.jpg",
+    "5": "p1.jpg",
+    "6": "p2.jpg",
+    "7": "p3.jpg",
+    "8": "p4.jpg",
+    "9": "p3.jpg",
+    "10": "p2.jpg"
   };
 
   function applyMessage(key) {
     const msgEl = document.getElementById('message');
+    const img = document.getElementById('photo');
+
+    // fade out
     msgEl.style.opacity = 0;
+    img.style.opacity = 0;
+    img.style.transform = "scale(1.02)";
 
     setTimeout(() => {
+      // update text
       msgEl.innerHTML = messages[key];
-      msgEl.style.opacity = 1;
 
-  
+      // update image (per message)
+      const nextSrc = messagePhotos[key] || "p1.jpg";
+      img.src = nextSrc;
+
+      // background flip (optional)
       document.body.style.backgroundImage =
-        (key % 2 === 0)
+        (parseInt(key, 10) % 2 === 0)
           ? "url('loveB.jpg')"
           : "url('loveA.jpg')";
 
-      localStorage.setItem('anniv-msg-17', key);
-    }, 300);
+      // fade in
+      msgEl.style.opacity = 1;
+      img.style.opacity = 1;
+      img.style.transform = "scale(1)";
+
+      localStorage.setItem('comfort-msg', key);
+    }, 320);
   }
 
   const select = document.getElementById('msgSelect');
-  const saved = localStorage.getItem('anniv-msg-17') || "1";
+  const saved = localStorage.getItem('comfort-msg') || "1";
   select.value = saved;
   applyMessage(saved);
 
