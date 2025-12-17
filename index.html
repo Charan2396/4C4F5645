@@ -204,34 +204,30 @@
   };
 
   function applyMessage(key) {
-    const msgEl = document.getElementById('message');
-    const img = document.getElementById('photo');
+  const msgEl = document.getElementById('message');
+  const img = document.getElementById('photo');
 
-    // fade out
-    msgEl.style.opacity = 0;
-    img.style.opacity = 0;
-    img.style.transform = "scale(1.02)";
+  msgEl.style.opacity = 0;
+  img.style.opacity = 0;
+  img.style.transform = "scale(1.02)";
 
-    setTimeout(() => {
-      // update text
-      msgEl.innerHTML = messages[key];
+  setTimeout(() => {
+    msgEl.innerHTML = messages[key];
 
-      // update image (per message)
-      const nextSrc = messagePhotos[key] || "p1.jpg";
-      img.src = nextSrc;
+    
+    const nextSrc = backgrounds[key] || "p1.jpg";
+    img.src = nextSrc;
 
-      // background flip (optional)
-     document.body.style.backgroundImage =
-  `url('${backgrounds[key]}')`;
+    document.body.style.backgroundImage = `url('${nextSrc}')`;
 
-      // fade in
-      msgEl.style.opacity = 1;
-      img.style.opacity = 1;
-      img.style.transform = "scale(1)";
+    msgEl.style.opacity = 1;
+    img.style.opacity = 1;
+    img.style.transform = "scale(1)";
 
-      localStorage.setItem('comfort-msg', key);
-    }, 320);
-  }
+    localStorage.setItem('comfort-msg', key);
+  }, 320);
+}
+
 
   const select = document.getElementById('msgSelect');
   const saved = localStorage.getItem('comfort-msg') || "1";
@@ -243,4 +239,5 @@
 
 </body>
 </html>
+
 
