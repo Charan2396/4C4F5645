@@ -190,14 +190,14 @@
   };
 
   // Map each message number -> photo file
-  const messagePhotos = {
+  const backgrounds = {
     "1": "p1.jpg",
     "2": "p2.jpg",
     "3": "p3.jpg",
     "4": "p4.jpg",
-    "5": "p1.jpg",
-    "6": "p2.jpg",
-    "7": "p3.jpg",
+    "5": "p5.jpg",
+    "6": "p6.jpg",
+    "7": "p7.jpg",
     "8": "p4.jpg",
     "9": "p3.jpg",
     "10": "p2.jpg"
@@ -221,10 +221,8 @@
       img.src = nextSrc;
 
       // background flip (optional)
-      document.body.style.backgroundImage =
-        (parseInt(key, 10) % 2 === 0)
-          ? "url('loveB.jpg')"
-          : "url('loveA.jpg')";
+     document.body.style.backgroundImage =
+  `url('${backgrounds[key]}')`;
 
       // fade in
       msgEl.style.opacity = 1;
@@ -245,3 +243,4 @@
 
 </body>
 </html>
+
