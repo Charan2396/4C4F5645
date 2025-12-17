@@ -215,17 +215,13 @@
   setTimeout(() => {
     msgEl.innerHTML = messages[key];
 
-    
     const nextSrc = backgrounds[key] || "p1.jpg";
     img.src = nextSrc;
-
     document.body.style.backgroundImage = `url('${nextSrc}')`;
 
     msgEl.style.opacity = 1;
     img.style.opacity = 1;
     img.style.transform = "scale(1)";
-
-    localStorage.setItem('comfort-msg', key);
   }, 320);
 }
 
@@ -240,6 +236,7 @@
 
 </body>
 </html>
+
 
 
 
