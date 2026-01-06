@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Here, With You ❤️</title>
+  <title>Happy 1 Year 6 Months ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
@@ -15,7 +15,7 @@
       flex-direction: column;
       text-align: center;
       min-height: 100vh;
-      background: url('loveA.jpg') no-repeat center center fixed;
+      background: url('love1.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       position: relative;
@@ -26,7 +26,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.50);
       z-index: 0;
     }
 
@@ -36,52 +36,35 @@
       inset: 0;
       background: url('border.jpg') no-repeat center center;
       background-size: cover;
-      opacity: 0.5;
+      opacity: 0.55;
       pointer-events: none;
       z-index: 1;
     }
 
     h1 {
-      font-size: 2.8rem;
-      color: #ff8fb3;
+      font-size: 3rem;
+      color: #ff7da5;
       margin: 20px;
-      z-index: 2;
       text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      z-index: 2;
+      position: relative;
     }
 
     p {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       max-width: 720px;
-      margin: 18px;
+      margin: 20px;
       line-height: 1.7;
+      z-index: 2;
       opacity: 0;
-      transition: opacity 0.8s ease-in;
-      z-index: 2;
       text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+      position: relative;
+      transition: opacity 0.8s ease-in;
     }
-
-    .photo-frame {
-      width: 280px;
-      height: 280px;
-      border-radius: 18px;
-      overflow: hidden;
-      margin-top: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      z-index: 2;
-    }
-
-    .photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.8s ease-in-out, transform 1.2s ease-in-out;
-  opacity: 0.75;                
-  mix-blend-mode: screen;      
-}
 
     .heart {
-      font-size: 3.2rem;
-      margin-top: 22px;
+      font-size: 3.5rem;
+      margin-top: 25px;
       animation: pulse 1.6s infinite;
       z-index: 2;
     }
@@ -91,20 +74,9 @@
       bottom: 10px;
       right: 20px;
       opacity: 0.12;
-      font-size: 80px;
+      font-size: 85px;
       font-weight: bold;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .hidden-note {
-      position: fixed;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.9rem;
-      opacity: 0.08;
-      letter-spacing: 1px;
+      color: #fff;
       z-index: 2;
       pointer-events: none;
     }
@@ -128,7 +100,7 @@
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.25); }
       100% { transform: scale(1); }
     }
   </style>
@@ -138,96 +110,64 @@
 
   <div class="switcher">
     <select id="msgSelect">
-      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
-      <option value="10">10</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
     </select>
   </div>
 
-  <h1>Here, With You ❤️</h1>
-
-  <div class="photo-frame">
-    <img id="photo" src="p1.jpg" alt="Photo" />
-  </div>
-
+  <h1>Happy 1 Year 6 Months, My Love ❤️</h1>
   <p id="message"></p>
-
   <div class="heart">💞</div>
   <div class="watermark">S ♡ A</div>
-  <div class="hidden-note">Nothing about us is fragile.</div>
 
 <script>
   const messages = {
-    "1": `I know things feel heavier right now. I wish I could take that weight from you and hold it myself.<br><br>
-          Since I can’t, I want you to know this, you don’t have to carry it alone.`,
+    "1": `1 year 6 months with you, and I still smile every time I see your name pop up. ❤️<br><br>
+          Life just feels better knowing you’re in it.`,
 
-    "2": `Some days don’t need fixing. They just need company, and I am coming soon to cutie<br><br>
-          This is me sitting beside you, quietly, not going anywhere.`,
+    "2": `18 months in, and you’re still the first person I want to talk to at the end of the day. 💗<br><br>
+          That hasn’t changed at all.`,
 
-    "3": `Even when you feel tired, unsure, or disappointed, you are still everything good to me.<br><br>
-          Nothing about you has changed in my eyes.`,
+    "3": `I love the small things we share — calls, jokes, checking in on each other. 🫶<br><br>
+          It’s simple, but it means everything to me.`,
 
-    "4": `I don’t love you because things are easy or perfectly timed.<br><br>
-          I love you because it’s you. That part is steady.`,
+    "4": `Thank you for being patient with me, even when I overthink or get quiet. 🌙<br><br>
+          You make me feel safe being myself.`,
 
-    "5": `There’s no pressure to be strong here. No need to smile through anything.<br><br>
-          You’re allowed to feel exactly how you feel with me. Always`,
+    "5": `1 and a half years later, I still choose you. ❤️<br><br>
+          Not because it’s easy, but because it’s you.`,
 
-    "6": `When plans change, it’s natural to feel shaken.<br><br>
-          Just remember: what we’re standing on hasn’t moved.`,
-
-    "7": `If today feels slow or unfair, let it be.<br><br>
-          We don’t lose ground by pausing. We just breathe.`,
-
-    "8": `I still choose you in quiet moments, not just happy ones.<br><br>
-          Especially the sad and quiet ones.`,
-
-    "9": `Nothing meaningful about us depends on a calendar or a date.<br><br>
-          What matters is that we keep showing up.`,
-
-    "10": `No matter what this looks like, I’m here. Calm. Certain. Your chonks.<br><br>
-           We’ll keep walking forward. Together.`
+    "6": `Happy 1 year 6 months, my favorite person. ❤️<br><br>
+          I’m grateful for you, for us, and I’m not going anywhere. Will always be your chonk.`
   };
 
-  // Map each message number -> photo file
   const backgrounds = {
-    "1": "p1.jpg",
-    "2": "p2.jpg",
-    "3": "p3.jpg",
-    "4": "p4.jpg",
-    "5": "p5.jpg",
-    "6": "p6.jpg",
-    "7": "p7.jpg",
-    "8": "p4.jpg",
-    "9": "p3.jpg",
-    "10": "p2.jpg"
+    "1": "url('love1.jpg')",
+    "2": "url('love2.jpg')",
+    "3": "url('love3.jpg')",
+    "4": "url('love4.jpg')",
+    "5": "url('love5.jpg')",
+    "6": "url('love6.jpg')"
   };
 
   function applyMessage(key) {
-  const msgEl = document.getElementById('message');
-  const img = document.getElementById('photo');
+    const msgEl = document.getElementById('message');
+    msgEl.style.opacity = 0;
 
-  msgEl.style.opacity = 0;
-  img.style.opacity = 0;
-  img.style.transform = "scale(1.02)";
-
-  setTimeout(() => {
-    msgEl.innerHTML = messages[key];
-
-    const nextSrc = backgrounds[key] || "p1.jpg";
-    img.src = nextSrc;
-    document.body.style.backgroundImage = `url('${nextSrc}')`;
-
-    msgEl.style.opacity = 1;
-    img.style.opacity = 1;
-    img.style.transform = "scale(1)";
-  }, 320);
-}
-
+    setTimeout(() => {
+      msgEl.innerHTML = messages[key];
+      msgEl.style.opacity = 1;
+      document.body.style.backgroundImage = backgrounds[key];
+      localStorage.setItem('anniv-msg-18', key);
+    }, 300);
+  }
 
   const select = document.getElementById('msgSelect');
-  const saved = "1";
+  const saved = localStorage.getItem('anniv-msg-18') || "1";
   select.value = saved;
   applyMessage(saved);
 
@@ -236,7 +176,3 @@
 
 </body>
 </html>
-
-
-
-
