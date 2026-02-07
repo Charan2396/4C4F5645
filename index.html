@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy 1 Year 6 Months ❤️</title>
+  <title>Happy 1 Year 7 Months ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
@@ -116,65 +116,72 @@
       <option value="4">4</option>
       <option value="5">5</option>
       <option value="6">6</option>
+      <option value="7">Letter ❤️</option>
     </select>
   </div>
 
-  <h1>Happy 1 Year 6 Months, My Love ❤️</h1>
+  <h1>Happy 1 Year 7 Months, My Love ❤️</h1>
   <p id="message"></p>
   <div class="heart">💞</div>
   <div class="watermark">S ♡ A</div>
 
 <script>
 const messages = {
-    "1": `1 year 6 months with you, and I still smile every time I see you no matter what I am going through. ❤️<br><br>
-          Life just feels better knowing you’re in it.`,
+  "1": `1 year and 7 months with you ❤️<br><br>
+        And I still feel lucky that you are mine.`,
 
-    "2": `18 months in, and you’re still the first person I want to talk to at the end of the day. 💗<br><br>
-          That hasn’t changed at all.`,
+  "2": `We thought today we would be getting married.<br><br>
+        Instead we are waiting again… but I am still yours, completely and forever. 💗`,
 
-    "3": `I love the my poo 🫶<br><br>
-          You are simple, but it means everything to me.`,
+  "3": `Dates moved. Plans changed.<br><br>
+        But what I feel for you has not changed a bit, will only grow.`,
 
-    "4": `Thank you for choosing me over and over, I know it is difficult, but I hope it is worth it. 🌙<br><br>
-          You make me feel safe being myself.`,
+  "4": `I know the wait feels long and unfair.<br><br>
+        Still, I would wait every version of time if it leads me to you. 🌙`,
 
-    "5": `1 and a half years later, I still choose you. ❤️<br><br>
-          Not because it’s easy, but because it’s you.`,
+  "5": `Also Valentine is coming 😌❤️<br><br>
+        I already asked, and I will ask forever, will you be my favorite cutie valentine?.`,
 
-    "6": `Happy 1 year 6 months, my favorite human poooh. ❤️<br><br>
-          I’m grateful for you, for us, and I’m not going anywhere. Will always be your chonk and annoying human.`
-  };
+  "6": `No matter how far the wedding feels,<br><br>
+        you are my home, my person, my calm. Always. Home is never a place, it's the person`,
 
-  const backgrounds = {
-    "1": "url('love1.jpg')",
-    "2": "url('love2.jpg')",
-    "3": "url('love3.jpg')",
-    "4": "url('love4.jpg')",
-    "5": "url('love5.jpg')",
-    "6": "url('love6.jpg')"
-  };
+  "7": `My love,<br><br>
+        I know this week hurts. We imagined being together, celebrating, finally starting our life the way we dreamed of the past 2 years.<br><br>
+        I see your strength. I see how much you are holding in. And I want you to know you are not doing this alone.<br><br>
+        I am right here. Loving you. Choosing you. Waiting with you.<br><br>
+        One day this delay will be a story we tell, and we will be proud of how we survived it together.<br><br>
+        Until then, be my Valentine, be my girl, be my always and I will always be your chonks. ❤️`
+};
 
-  function applyMessage(key) {
-    const msgEl = document.getElementById('message');
-    msgEl.style.opacity = 0;
+const backgrounds = {
+  "1": "url('love1.jpg')",
+  "2": "url('love2.jpg')",
+  "3": "url('love3.jpg')",
+  "4": "url('love4.jpg')",
+  "5": "url('love5.jpg')",
+  "6": "url('love6.jpg')",
+  "7": "url('love7.jpg')"
+};
 
-    setTimeout(() => {
-      msgEl.innerHTML = messages[key];
-      msgEl.style.opacity = 1;
-      document.body.style.backgroundImage = backgrounds[key];
-      localStorage.setItem('anniv-msg-18', key);
-    }, 300);
-  }
+function applyMessage(key) {
+  const msgEl = document.getElementById('message');
+  msgEl.style.opacity = 0;
 
-  const select = document.getElementById('msgSelect');
-  const saved = localStorage.getItem('anniv-msg-18') || "1";
-  select.value = saved;
-  applyMessage(saved);
+  setTimeout(() => {
+    msgEl.innerHTML = messages[key];
+    msgEl.style.opacity = 1;
+    document.body.style.backgroundImage = backgrounds[key];
+    localStorage.setItem('anniv-msg-19', key);
+  }, 300);
+}
 
-  select.addEventListener('change', e => applyMessage(e.target.value));
+const select = document.getElementById('msgSelect');
+const saved = localStorage.getItem('anniv-msg-19') || "1";
+select.value = saved;
+applyMessage(saved);
+
+select.addEventListener('change', e => applyMessage(e.target.value));
 </script>
 
 </body>
 </html>
-
-
