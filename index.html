@@ -1,187 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Happy 1 Year 7 Months ❤️</title>
+  <meta charset="UTF-8"/>
+  <title>Happy 1 Year 8 Months ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet"/>
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      min-height: 100vh;
-      background: url('love1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      position: relative;
-      transition: background-image 1.2s ease-in-out;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:      #f4a0b8;
+      --deep-rose: #c2556e;
+      --blush:     #fce8ee;
+      --gold:      #d4a84b;
+      --gold-lt:   #f0d080;
+      --ivory:     #fdf6ee;
+      --dark:      #0c0507;
+      --panel:     rgba(8,2,5,0.72);
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.50);
-      z-index: 0;
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: var(--dark);
+      cursor: default;
     }
 
-    body::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('border.jpg') no-repeat center center;
-      background-size: cover;
-      opacity: 0.55;
+    #petal-canvas {
+      position: fixed; inset: 0; z-index: 1;
       pointer-events: none;
-      z-index: 1;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #ff7da5;
-      margin: 20px;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
-      z-index: 2;
-      position: relative;
+    #bg {
+      position: fixed; inset: 0; z-index: 0;
+      background-size: cover;
+      background-position: center;
     }
-
-    p {
-      font-size: 1.35rem;
-      max-width: 720px;
-      margin: 20px;
-      line-height: 1.7;
-      z-index: 2;
+    #bg-next {
+      position: fixed; inset: 0; z-index: 0;
+      background-size: cover;
+      background-position: center;
       opacity: 0;
-      text-shadow: 0 3px 8px rgba(0,0,0,0.6);
-      position: relative;
-      transition: opacity 0.8s ease-in;
+      transition: opacity 1.6s cubic-bezier(.4,0,.2,1);
+    }
+    #bg::after, #bg-next::after {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(5,0,3,0.65) 100%),
+        linear-gradient(to bottom, rgba(5,0,3,0.45) 0%, transparent 25%, transparent 70%, rgba(5,0,3,0.70) 100%);
     }
 
-    .heart {
-      font-size: 3.5rem;
-      margin-top: 25px;
-      animation: pulse 1.6s infinite;
-      z-index: 2;
-    }
-
-    .watermark {
-      position: fixed;
-      bottom: 10px;
-      right: 20px;
-      opacity: 0.12;
-      font-size: 85px;
-      font-weight: bold;
-      color: #fff;
-      z-index: 2;
+    /* ── ORNATE FRAME ── */
+    #frame {
+      position: fixed; inset: 0; z-index: 2;
       pointer-events: none;
     }
+    #frame::before, #frame::after,
+    #frame .corner-bl, #frame .corner-br {
+      content: "";
+      position: absolute;
+      width: 110px; height: 110px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M2,2 L38,2 M2,2 L2,38' stroke='%23d4a84b' stroke-width='1.2' fill='none' opacity='0.7'/%3E%3Cpath d='M2,2 L22,2 M2,2 L2,22' stroke='%23d4a84b' stroke-width='0.7' fill='none' opacity='0.4'/%3E%3Ccircle cx='2' cy='2' r='2.5' fill='%23d4a84b' opacity='0.7'/%3E%3Ccircle cx='38' cy='2' r='1.2' fill='%23d4a84b' opacity='0.5'/%3E%3Ccircle cx='2' cy='38' r='1.2' fill='%23d4a84b' opacity='0.5'/%3E%3Cpath d='M8,2 Q15,8 2,15' stroke='%23d4a84b' stroke-width='0.6' fill='none' opacity='0.35'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    #frame::before  { top: 18px; left: 18px; }
+    #frame::after   { top: 18px; right: 18px; transform: scaleX(-1); }
+    #frame .corner-bl { bottom: 18px; left: 18px; transform: scaleY(-1); }
+    #frame .corner-br { bottom: 18px; right: 18px; transform: scale(-1,-1); }
 
-    .switcher {
+    #frame .line-top, #frame .line-bottom {
+      position: absolute;
+      left: 130px; right: 130px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,168,75,0.5), transparent);
+    }
+    #frame .line-top    { top: 18px; }
+    #frame .line-bottom { bottom: 18px; }
+    #frame .line-left, #frame .line-right {
+      position: absolute;
+      top: 130px; bottom: 130px; width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(212,168,75,0.5), transparent);
+    }
+    #frame .line-left  { left: 18px; }
+    #frame .line-right { right: 18px; }
+
+    /* ── SLIDE PANEL ── */
+    #slide-panel {
+      position: fixed; inset: 0; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 80px 24px 100px;
+      text-align: center;
+      pointer-events: none;
+      overflow-y: auto;
+    }
+
+    #header-group { margin-bottom: 24px; }
+
+    .eyebrow {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: riseIn 1s 0.2s forwards;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 5.5vw, 3.6rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.2;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 1px 0 rgba(212,168,75,0.3);
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: riseIn 1s 0.45s forwards;
+    }
+    h1 em { color: var(--rose); font-style: normal; }
+
+    .sub-line {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      font-style: italic;
+      color: rgba(252,232,238,0.75);
+      letter-spacing: 0.08em;
+      opacity: 0;
+      animation: riseIn 1s 0.7s forwards;
+      margin-bottom: 6px;
+    }
+
+    .proposal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(212,168,75,0.55);
+      background: rgba(212,168,75,0.08);
+      color: var(--gold-lt);
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 40px;
+      margin-top: 12px;
+      opacity: 0;
+      animation: riseIn 1s 0.9s forwards;
+    }
+
+    /* ── MESSAGE CARD ── */
+    #msg-card {
+      position: relative;
+      max-width: 680px;
+      width: 100%;
+      padding: 36px 44px;
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(212,168,75,0.22);
+      border-radius: 2px;
+    }
+    #msg-card::before {
+      content: "";
+      position: absolute;
+      top: -1px; left: 15%; right: 15%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
+    }
+    #msg-card::after {
+      content: "";
+      position: absolute;
+      bottom: -1px; left: 15%; right: 15%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
+    }
+
+    #msg-text {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.38rem);
+      font-weight: 300;
+      line-height: 1.95;
+      color: rgba(253,246,238,0.93);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    #msg-text em { color: var(--rose); font-style: italic; }
+
+    .ornament {
+      font-size: 1.1rem;
+      color: var(--gold);
+      opacity: 0.7;
+      display: block;
+      margin: 16px 0 0;
+      letter-spacing: 0.5em;
+      transition: opacity 0.5s;
+    }
+    .late-tag {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: rgba(244,160,184,0.6);
+      margin-top: 8px;
+      display: block;
+      transition: opacity 0.5s;
+    }
+
+    /* ── NAV ── */
+    #nav-bar {
       position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 3;
-      background: rgba(0,0,0,0.45);
-      padding: 8px 12px;
-      border-radius: 8px;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      pointer-events: all;
+    }
+    .nav-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,168,75,0.45);
+      background: rgba(10,3,7,0.55);
+      color: var(--gold);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .nav-btn:hover { background: rgba(212,168,75,0.2); border-color: var(--gold); transform: scale(1.1); }
+
+    #dots-row { display: flex; gap: 8px; align-items: center; }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      border: 1px solid rgba(212,168,75,0.4);
+      cursor: pointer;
+      transition: all 0.35s;
+      pointer-events: all;
+    }
+    .dot.active { background: var(--gold); border-color: var(--gold-lt); transform: scale(1.5); }
+
+    #counter {
+      position: fixed;
+      top: 24px; right: 28px;
+      z-index: 6;
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      color: rgba(212,168,75,0.55);
     }
 
-    .switcher select {
-      background: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 4px 6px;
+    #monogram {
+      position: fixed;
+      bottom: 14px; right: 22px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-style: italic;
+      color: rgba(212,168,75,0.07);
+      pointer-events: none;
+      user-select: none;
+      z-index: 2;
+      line-height: 1;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.25); }
-      100% { transform: scale(1); }
+    /* ── FINAL NOTE ── */
+    .final-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 3.5vw, 2rem);
+      color: var(--rose);
+      margin-bottom: 20px;
+      display: block;
+      text-align: center;
+    }
+    .final-body {
+      text-align: left;
+    }
+    .final-body p {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1rem, 2.2vw, 1.22rem);
+      font-weight: 300;
+      line-height: 1.95;
+      color: rgba(253,246,238,0.92);
+      margin-bottom: 14px;
+    }
+    .final-body p em { color: var(--rose); }
+    .final-body .sig {
+      font-style: italic;
+      color: var(--gold);
+      font-size: 1.05rem;
+    }
+
+    .msg-hidden { opacity: 0 !important; transform: translateY(12px) !important; }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 540px) {
+      #msg-card { padding: 24px 20px; }
+      h1 { font-size: 1.75rem; }
+      #frame .line-top, #frame .line-bottom { left: 90px; right: 90px; }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="switcher">
-    <select id="msgSelect">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">Letter ❤️</option>
-    </select>
+<canvas id="petal-canvas"></canvas>
+<div id="bg"></div>
+<div id="bg-next"></div>
+
+<div id="frame">
+  <div class="corner-bl"></div>
+  <div class="corner-br"></div>
+  <div class="line-top"></div>
+  <div class="line-bottom"></div>
+  <div class="line-left"></div>
+  <div class="line-right"></div>
+</div>
+
+<div id="counter"></div>
+<div id="monogram">S ♡ A</div>
+
+<div id="slide-panel">
+  <div id="header-group">
+    <div class="eyebrow">March 6 &nbsp;·&nbsp; 1 Year &amp; 8 Months</div>
+    <h1>Happy <em>1 Year 8 Months</em>,<br>My Love ❤️</h1>
+    <div class="sub-line">A little late — but every word is meant with all of me.</div>
+    <div class="proposal-pill">💍 &nbsp; She Said Yes &nbsp;·&nbsp; March 8</div>
   </div>
 
-  <h1>Happy 1 Year 7 Months, My Love ❤️</h1>
-  <p id="message"></p>
-  <div class="heart">💞</div>
-  <div class="watermark">S ♡ A</div>
+  <div id="msg-card">
+    <div id="msg-text"></div>
+    <span class="ornament" id="ornament">— ♡ —</span>
+    <span class="late-tag" id="late-tag"></span>
+  </div>
+</div>
+
+<div id="nav-bar">
+  <button class="nav-btn" id="prev">&#8592;</button>
+  <div id="dots-row"></div>
+  <button class="nav-btn" id="next">&#8594;</button>
+</div>
 
 <script>
-const messages = {
-  "1": `1 year and 7 months with you ❤️<br><br>
-        And I still feel lucky that you are mine.`,
+const slides = [
+  {
+    bg: "love1.jpg",
+    text: `1 year and 8 months with you. ❤️<br><br>
+           I know I'm a little late, but I needed you to have this anyway.<br><br>
+           I still wake up grateful — because somehow, across everything, you are mine.`,
+    late: ""
+  },
+  {
+    bg: "love2.jpg",
+    text: `March 6th came quietly.<br><br>
+           Our anniversary — no grand celebration, just us — and still,<br>
+           I felt the full weight of how much you mean to me.<br><br>
+           I hope you felt me loving you across every mile. 🌙`,
+    late: "Happy (belated) 1 Year &amp; 8 Months, my love."
+  },
+  {
+    bg: "love3.jpg",
+    text: `And then March 8th happened.<br><br>
+           I got on one knee and asked you to be mine forever.<br><br>
+           You said <em>yes</em> — and the whole world rearranged itself. 💍`,
+    late: ""
+  },
+  {
+    bg: "love4.jpg",
+    text: `The ring looked beautiful on your hand.<br><br>
+           But honestly, you make everything beautiful just by being in it.<br><br>
+           I have never been more certain of anything in my life. 🌸`,
+    late: ""
+  },
+  {
+    bg: "love5.jpg",
+    text: `I know we are still waiting. Still in the middle of the unknown.<br><br>
+           But I need you to hear this clearly:<br><br>
+           I am not going anywhere. Not even close. 💗`,
+    late: ""
+  },
+  {
+    bg: "love6.jpg",
+    text: `Dates move. Plans shift. Life is unfair sometimes.<br><br>
+           What does not shift — not even a little — is what I feel for you.<br><br>
+           That only grows. Every. Single. Day.`,
+    late: ""
+  },
+  {
+    bg: "love7.jpg",
+    text: `I know the uncertainty is heavy to carry.<br><br>
+           Let me carry it with you. That is what we are now — <em>fiancés</em>.<br><br>
+           You are not doing this alone, and you never will be again. 💛`,
+    late: ""
+  },
+  {
+    bg: "love8.jpg",
+    text: `Through all the hard days, the waiting, the not-knowing —<br><br>
+           you still love so deeply. You still hold us together.<br><br>
+           That strength in you is one of the most beautiful things I have ever seen.`,
+    late: ""
+  },
+  {
+    bg: "love9.jpg",
+    text: `One day this will all be a story we tell by firelight.<br><br>
+           We'll sit together, finally settled, finally home, and say:<br><br>
+           <em>"Remember how hard it was? Look at us now."</em> 🏡`,
+    late: ""
+  },
+  {
+    bg: "love10.jpg",
+    text: `Until that day — here is what I know for certain:<br><br>
+           You are my home. My calm. My favorite person on this earth.<br><br>
+           Home was never a place. It has always, always been you.`,
+    late: ""
+  },
+  {
+    bg: "love10.jpg",
+    isFinal: true
+  }
+];
 
-  "2": `We thought today we would be getting married.<br><br>
-        Instead we are waiting again… but I am still yours, completely and forever. 💗`,
+const bgEl    = document.getElementById('bg');
+const bgNext  = document.getElementById('bg-next');
+const msgText = document.getElementById('msg-text');
+const ornEl   = document.getElementById('ornament');
+const lateEl  = document.getElementById('late-tag');
+const headerEl= document.getElementById('header-group');
+const dotsRow = document.getElementById('dots-row');
+let currentBg = "";
+let current   = 0;
+const TOTAL   = slides.length;
 
-  "3": `Dates moved. Plans changed.<br><br>
-        But what I feel for you has not changed a bit, will only grow.`,
+/* dots */
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot';
+  d.addEventListener('click', () => goTo(i));
+  dotsRow.appendChild(d);
+});
 
-  "4": `I know the wait feels long and unfair.<br><br>
-        Still, I would wait every version of time if it leads me to you. 🌙`,
-
-  "5": `Also Valentine is coming 😌❤️<br><br>
-        I already asked, and I will ask forever, will you be my favorite cutie valentine?.`,
-
-  "6": `No matter how far the wedding feels,<br><br>
-        you are my home, my person, my calm. Always. Home is never a place, it's the person`,
-
-  "7": `My love,<br><br>
-        I know this week hurts. We imagined being together, celebrating, finally starting our life the way we dreamed of the past 2 years.<br><br>
-        I see your strength. I see how much you are holding in. And I want you to know you are not doing this alone.<br><br>
-        I am right here. Loving you. Choosing you. Waiting with you.<br><br>
-        One day this delay will be a story we tell, and we will be proud of how we survived it together.<br><br>
-        Until then, be my Valentine, be my girl, be my always and I will always be your chonks. ❤️`
-};
-
-const backgrounds = {
-  "1": "url('love1.jpg')",
-  "2": "url('love2.jpg')",
-  "3": "url('love3.jpg')",
-  "4": "url('love4.jpg')",
-  "5": "url('love5.jpg')",
-  "6": "url('love6.jpg')",
-  "7": "url('love7.jpg')"
-};
-
-function applyMessage(key) {
-  const msgEl = document.getElementById('message');
-  msgEl.style.opacity = 0;
-
-  setTimeout(() => {
-    msgEl.innerHTML = messages[key];
-    msgEl.style.opacity = 1;
-    document.body.style.backgroundImage = backgrounds[key];
-    localStorage.setItem('anniv-msg-19', key);
-  }, 300);
+function setBackground(img) {
+  if (img === currentBg) return;
+  bgNext.style.backgroundImage = `url('${img}')`;
+  bgNext.style.opacity = 0;
+  requestAnimationFrame(() => {
+    bgNext.style.opacity = 1;
+    setTimeout(() => {
+      bgEl.style.backgroundImage = `url('${img}')`;
+      bgNext.style.opacity = 0;
+      currentBg = img;
+    }, 1650);
+  });
 }
 
-const select = document.getElementById('msgSelect');
-const saved = localStorage.getItem('anniv-msg-19') || "1";
-select.value = saved;
-applyMessage(saved);
+function goTo(idx) {
+  current = ((idx % TOTAL) + TOTAL) % TOTAL;
+  const s = slides[current];
 
-select.addEventListener('change', e => applyMessage(e.target.value));
+  setBackground(s.bg);
+
+  msgText.classList.add('msg-hidden');
+  ornEl.style.opacity  = 0;
+  lateEl.style.opacity = 0;
+
+  setTimeout(() => {
+    if (s.isFinal) {
+      msgText.innerHTML = `
+        <span class="final-title">A note, just for you 💌</span>
+        <div class="final-body">
+          <p>My love,</p>
+          <p>I know I'm a little late with this. But I needed you to have it anyway.</p>
+          <p>We thought we'd be married by now. We had a date, a dream, a whole future mapped out. Instead we found ourselves in more waiting, more uncertainty.</p>
+          <p>But between our 1 year 8 months on the 6th and your <em>yes</em> on the 8th — this has still been one of the most meaningful weeks of my life. You chose me. Knowing everything that comes with it, you still said yes.</p>
+          <p>I see you being strong. I see you carrying more than you should. You don't have to carry it alone. I am right here - choosing you every morning, waiting alongside you, building toward <em>us</em>.</p>
+          <p>The hard season won't last forever. But us? We will.</p>
+          <p class="sig">— Always your chonks ❤️</p>
+        </div>`;
+      ornEl.style.display  = 'none';
+      lateEl.style.display = 'none';
+      headerEl.style.display = 'none';
+    } else {
+      headerEl.style.display = '';
+      ornEl.style.display    = 'block';
+      lateEl.style.display   = 'block';
+      msgText.innerHTML      = s.text;
+      lateEl.innerHTML       = s.late || '';
+      ornEl.style.opacity    = 1;
+      lateEl.style.opacity   = 1;
+    }
+    msgText.classList.remove('msg-hidden');
+    msgText.style.opacity   = 1;
+    msgText.style.transform = 'translateY(0)';
+  }, 420);
+
+  document.getElementById('counter').textContent = `${current + 1} / ${TOTAL}`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+}
+
+document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
+document.getElementById('next').addEventListener('click', () => goTo(current + 1));
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo(current + 1);
+  if (e.key === 'ArrowLeft')  goTo(current - 1);
+});
+let tx = null;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 45) goTo(current + (dx < 0 ? 1 : -1));
+  tx = null;
+});
+
+/* ── FLOATING PETALS ── */
+const canvas = document.getElementById('petal-canvas');
+const ctx    = canvas.getContext('2d');
+let W, H;
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const COLORS = [
+  [244,160,184], [255,200,218], [212,168,75], [255,230,240], [210,120,150]
+];
+
+function rand(a, b) { return a + Math.random() * (b - a); }
+
+function makePetal(scatter) {
+  return {
+    x: rand(0, W),
+    y: scatter ? rand(0, H) : rand(-150, -10),
+    vx: rand(-0.4, 0.4),
+    vy: rand(0.5, 1.3),
+    rot: rand(0, Math.PI * 2),
+    vrot: rand(-0.02, 0.02),
+    rw: rand(7, 15),
+    rh: rand(4, 9),
+    alpha: rand(0.22, 0.50),
+    col: COLORS[Math.floor(rand(0, COLORS.length))],
+    wave: rand(0, Math.PI * 2),
+    ws: rand(0.012, 0.03),
+    wa: rand(0.4, 1.1)
+  };
+}
+
+const petals = Array.from({ length: 30 }, () => makePetal(true));
+
+(function loop() {
+  ctx.clearRect(0, 0, W, H);
+  petals.forEach(p => {
+    p.wave += p.ws;
+    p.x += p.vx + Math.sin(p.wave) * p.wa;
+    p.y += p.vy;
+    p.rot += p.vrot;
+    if (p.y > H + 20) Object.assign(p, makePetal(false));
+
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rot);
+    ctx.fillStyle = `rgba(${p.col[0]},${p.col[1]},${p.col[2]},${p.alpha})`;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, p.rw / 2, p.rh / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  });
+  requestAnimationFrame(loop);
+})();
+
+goTo(0);
 </script>
-
 </body>
 </html>
