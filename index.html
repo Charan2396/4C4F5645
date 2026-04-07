@@ -2,582 +2,664 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Happy 1 Year 8 Months ❤️</title>
+  <title>21 Months — For You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Sacramento&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --rose:      #f4a0b8;
-      --deep-rose: #c2556e;
-      --blush:     #fce8ee;
-      --gold:      #d4a84b;
-      --gold-lt:   #f0d080;
-      --ivory:     #fdf6ee;
-      --dark:      #0c0507;
-      --panel:     rgba(8,2,5,0.72);
+      --bg:        #faf6f0;
+      --parch:     #f3ebe0;
+      --warm:      #e0ccb0;
+      --rose:      #d4788a;
+      --rose-deep: #9e3a50;
+      --blush:     #f9e8ed;
+      --ink:       #281a1a;
+      --ink-mid:   #4a3030;
+      --ink-soft:  #6b4a4a;
+      --gold:      #b8884a;
+      --sage:      #7a9980;
     }
 
-    html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
-      background: var(--dark);
-      cursor: default;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Crimson Pro', serif;
+      overflow-x: hidden;
     }
 
-    #petal-canvas {
-      position: fixed; inset: 0; z-index: 1;
+    /* paper grain */
+    body::after {
+      content: "";
+      position: fixed; inset: 0; z-index: 200;
       pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.028;
+      background-size: 250px;
     }
 
-    #bg {
-      position: fixed; inset: 0; z-index: 0;
-      background-size: cover;
-      background-position: center;
+    /* ══════════════════
+       HERO
+    ══════════════════ */
+    #hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
-    #bg-next {
-      position: fixed; inset: 0; z-index: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.6s cubic-bezier(.4,0,.2,1);
+
+    #hero-img {
+      position: absolute; inset: 0;
+      background: url('pics/1.jpg') center 30% / cover no-repeat;
+      transform: scale(1.06);
+      animation: kenburns 10s ease-out forwards;
     }
-    #bg::after, #bg-next::after {
+
+    #hero-img::after {
       content: "";
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(5,0,3,0.65) 100%),
-        linear-gradient(to bottom, rgba(5,0,3,0.45) 0%, transparent 25%, transparent 70%, rgba(5,0,3,0.70) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(20,8,8,0.08) 0%,
+        rgba(20,8,8,0.0) 35%,
+        rgba(20,8,8,0.55) 75%,
+        rgba(20,8,8,0.88) 100%
+      );
     }
 
-    /* ── ORNATE FRAME ── */
-    #frame {
-      position: fixed; inset: 0; z-index: 2;
-      pointer-events: none;
-    }
-    #frame::before, #frame::after,
-    #frame .corner-bl, #frame .corner-br {
-      content: "";
-      position: absolute;
-      width: 110px; height: 110px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M2,2 L38,2 M2,2 L2,38' stroke='%23d4a84b' stroke-width='1.2' fill='none' opacity='0.7'/%3E%3Cpath d='M2,2 L22,2 M2,2 L2,22' stroke='%23d4a84b' stroke-width='0.7' fill='none' opacity='0.4'/%3E%3Ccircle cx='2' cy='2' r='2.5' fill='%23d4a84b' opacity='0.7'/%3E%3Ccircle cx='38' cy='2' r='1.2' fill='%23d4a84b' opacity='0.5'/%3E%3Ccircle cx='2' cy='38' r='1.2' fill='%23d4a84b' opacity='0.5'/%3E%3Cpath d='M8,2 Q15,8 2,15' stroke='%23d4a84b' stroke-width='0.6' fill='none' opacity='0.35'/%3E%3C/svg%3E");
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-    #frame::before  { top: 18px; left: 18px; }
-    #frame::after   { top: 18px; right: 18px; transform: scaleX(-1); }
-    #frame .corner-bl { bottom: 18px; left: 18px; transform: scaleY(-1); }
-    #frame .corner-br { bottom: 18px; right: 18px; transform: scale(-1,-1); }
-
-    #frame .line-top, #frame .line-bottom {
-      position: absolute;
-      left: 130px; right: 130px; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(212,168,75,0.5), transparent);
-    }
-    #frame .line-top    { top: 18px; }
-    #frame .line-bottom { bottom: 18px; }
-    #frame .line-left, #frame .line-right {
-      position: absolute;
-      top: 130px; bottom: 130px; width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(212,168,75,0.5), transparent);
-    }
-    #frame .line-left  { left: 18px; }
-    #frame .line-right { right: 18px; }
-
-    /* ── SLIDE PANEL ── */
-    #slide-panel {
-      position: fixed; inset: 0; z-index: 3;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 80px 24px 100px;
+    #hero-text {
+      position: relative; z-index: 2;
       text-align: center;
-      pointer-events: none;
-      overflow-y: auto;
-    }
-
-    #header-group { margin-bottom: 24px; }
-
-    .eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.45em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      opacity: 0;
-      animation: riseIn 1s 0.2s forwards;
-    }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 5.5vw, 3.6rem);
-      font-weight: 400;
-      font-style: italic;
-      color: #fff;
-      line-height: 1.2;
-      text-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 1px 0 rgba(212,168,75,0.3);
-      margin-bottom: 10px;
-      opacity: 0;
-      animation: riseIn 1s 0.45s forwards;
-    }
-    h1 em { color: var(--rose); font-style: normal; }
-
-    .sub-line {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(0.85rem, 2vw, 1.1rem);
-      font-style: italic;
-      color: rgba(252,232,238,0.75);
-      letter-spacing: 0.08em;
-      opacity: 0;
-      animation: riseIn 1s 0.7s forwards;
-      margin-bottom: 6px;
-    }
-
-    .proposal-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(212,168,75,0.55);
-      background: rgba(212,168,75,0.08);
-      color: var(--gold-lt);
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: 40px;
-      margin-top: 12px;
-      opacity: 0;
-      animation: riseIn 1s 0.9s forwards;
-    }
-
-    /* ── MESSAGE CARD ── */
-    #msg-card {
-      position: relative;
-      max-width: 680px;
+      padding: 0 24px 64px;
       width: 100%;
-      padding: 36px 44px;
-      background: var(--panel);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(212,168,75,0.22);
-      border-radius: 2px;
-    }
-    #msg-card::before {
-      content: "";
-      position: absolute;
-      top: -1px; left: 15%; right: 15%;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
-    }
-    #msg-card::after {
-      content: "";
-      position: absolute;
-      bottom: -1px; left: 15%; right: 15%;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--gold), var(--gold-lt), var(--gold), transparent);
     }
 
-    #msg-text {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(1.05rem, 2.5vw, 1.38rem);
+    .hero-small {
+      font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      line-height: 1.95;
-      color: rgba(253,246,238,0.93);
-      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    #msg-text em { color: var(--rose); font-style: italic; }
-
-    .ornament {
-      font-size: 1.1rem;
-      color: var(--gold);
-      opacity: 0.7;
-      display: block;
-      margin: 16px 0 0;
-      letter-spacing: 0.5em;
-      transition: opacity 0.5s;
-    }
-    .late-tag {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: rgba(244,160,184,0.6);
-      margin-top: 8px;
-      display: block;
-      transition: opacity 0.5s;
-    }
-
-    /* ── NAV ── */
-    #nav-bar {
-      position: fixed;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 6;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      pointer-events: all;
-    }
-    .nav-btn {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(212,168,75,0.45);
-      background: rgba(10,3,7,0.55);
-      color: var(--gold);
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s, border-color 0.3s, transform 0.2s;
-      backdrop-filter: blur(8px);
-    }
-    .nav-btn:hover { background: rgba(212,168,75,0.2); border-color: var(--gold); transform: scale(1.1); }
-
-    #dots-row { display: flex; gap: 8px; align-items: center; }
-    .dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      border: 1px solid rgba(212,168,75,0.4);
-      cursor: pointer;
-      transition: all 0.35s;
-      pointer-events: all;
-    }
-    .dot.active { background: var(--gold); border-color: var(--gold-lt); transform: scale(1.5); }
-
-    #counter {
-      position: fixed;
-      top: 24px; right: 28px;
-      z-index: 6;
-      font-family: 'Cinzel', serif;
-      font-size: 0.58rem;
-      letter-spacing: 0.3em;
-      color: rgba(212,168,75,0.55);
-    }
-
-    #monogram {
-      position: fixed;
-      bottom: 14px; right: 22px;
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-style: italic;
-      color: rgba(212,168,75,0.07);
-      pointer-events: none;
-      user-select: none;
-      z-index: 2;
-      line-height: 1;
-    }
-
-    /* ── FINAL NOTE ── */
-    .final-title {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.3rem, 3.5vw, 2rem);
-      color: var(--rose);
-      margin-bottom: 20px;
-      display: block;
-      text-align: center;
-    }
-    .final-body {
-      text-align: left;
-    }
-    .final-body p {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(1rem, 2.2vw, 1.22rem);
-      font-weight: 300;
-      line-height: 1.95;
-      color: rgba(253,246,238,0.92);
+      font-size: 0.72rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(250,246,240,0.55);
       margin-bottom: 14px;
+      opacity: 0;
+      animation: up 1.2s 0.5s forwards;
     }
-    .final-body p em { color: var(--rose); }
-    .final-body .sig {
+
+    .hero-name {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(4.5rem, 16vw, 10rem);
+      color: #faf6f0;
+      line-height: 0.95;
+      text-shadow: 0 6px 50px rgba(0,0,0,0.5);
+      opacity: 0;
+      animation: up 1.4s 0.9s forwards;
+    }
+
+    .hero-sub {
+      font-family: 'DM Serif Display', serif;
       font-style: italic;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: rgba(250,246,240,0.75);
+      margin-top: 10px;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      animation: up 1.2s 1.3s forwards;
+    }
+
+    .scroll-cue {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      opacity: 0;
+      animation: up 1s 2s forwards;
+    }
+    .scroll-cue span {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: rgba(250,246,240,0.4);
+      letter-spacing: 0.1em;
+    }
+    .scroll-tick {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(250,246,240,0.4), transparent);
+      animation: tickPulse 2.2s ease-in-out infinite;
+    }
+
+    /* ══════════════════
+       BODY
+    ══════════════════ */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ── thin rule ── */
+    .rule {
+      display: flex; align-items: center; gap: 16px;
+      padding: 68px 0 0;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .rule.on { opacity: 1; transform: none; }
+    .rule::before, .rule::after {
+      content: ""; flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--warm));
+    }
+    .rule::after { background: linear-gradient(to left, transparent, var(--warm)); }
+    .rule-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
       color: var(--gold);
-      font-size: 1.05rem;
+      white-space: nowrap;
     }
 
-    .msg-hidden { opacity: 0 !important; transform: translateY(12px) !important; }
+    /* ── prose block ── */
+    .prose {
+      padding: 44px 0 0;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .prose.on { opacity: 1; transform: none; }
 
-    @keyframes riseIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .prose p {
+      font-size: clamp(1.12rem, 2.6vw, 1.38rem);
+      font-weight: 300;
+      line-height: 2;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose p em   { color: var(--rose-deep); font-style: italic; }
+    .prose p strong { font-weight: 500; color: var(--ink); }
+
+    /* drop cap */
+    .prose.dropcap p:first-of-type::first-letter {
+      font-family: 'Sacramento', cursive;
+      font-size: 6rem;
+      line-height: 0.72;
+      float: left;
+      margin-right: 8px;
+      margin-top: 12px;
+      color: var(--rose);
     }
 
-    @media (max-width: 540px) {
-      #msg-card { padding: 24px 20px; }
-      h1 { font-size: 1.75rem; }
-      #frame .line-top, #frame .line-bottom { left: 90px; right: 90px; }
+    /* ── pull quote ── */
+    .quote {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
+      color: var(--rose);
+      line-height: 1.3;
+      text-align: center;
+      padding: 52px 16px;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .quote.on { opacity: 1; transform: none; }
+
+    /* ── PHOTO LAYOUTS ── */
+    .photo { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
+    .photo.on { opacity: 1; transform: none; }
+
+    /* full bleed */
+    .photo-wide {
+      width: calc(100% + 56px);
+      margin-left: -28px;
+      margin-top: 52px;
+      height: clamp(260px, 52vw, 460px);
+      object-fit: cover;
+      display: block;
+    }
+
+    /* polaroid — tilted */
+    .polaroid-wrap {
+      margin: 52px auto 0;
+      max-width: 340px;
+    }
+    .polaroid {
+      background: #fff;
+      padding: 12px 12px 44px;
+      box-shadow: 0 10px 48px rgba(40,26,26,0.13), 0 2px 8px rgba(40,26,26,0.07);
+      transform: rotate(-2deg);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .polaroid:hover { transform: rotate(0deg) scale(1.02); box-shadow: 0 18px 64px rgba(40,26,26,0.18); }
+    .polaroid img   { width: 100%; height: clamp(200px, 44vw, 320px); object-fit: cover; display: block; }
+    .polaroid .pol-cap {
+      font-family: 'Sacramento', cursive;
+      font-size: 1.5rem;
+      color: var(--ink-soft);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.2;
+    }
+
+    /* pair */
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 52px;
+    }
+    .pair img { width: 100%; height: clamp(170px, 32vw, 280px); object-fit: cover; display: block; }
+
+    /* side-by-side with text */
+    .side {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 52px;
+    }
+    .side.flip { grid-template-columns: 1.5fr 1fr; }
+    .side img  { width: 100%; height: clamp(190px, 38vw, 300px); object-fit: cover; display: block; }
+    .side-note {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+      color: var(--rose);
+      line-height: 1.45;
+    }
+
+    /* ── SEEN LIST ── */
+    /* this is the emotional core — specific little observations */
+    .seen-section {
+      padding: 60px 0 0;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .seen-section.on { opacity: 1; transform: none; }
+
+    .seen-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .seen-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 26px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--warm);
+    }
+    .seen-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .seen-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--rose);
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+
+    .seen-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(1.08rem, 2.4vw, 1.3rem);
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink-soft);
+    }
+    .seen-text em { color: var(--rose-deep); font-style: italic; }
+
+    /* ── MILESTONE ── */
+    .milestone {
+      margin: 60px 0 0;
+      padding: 32px 36px;
+      background: var(--blush);
+      border-left: 3px solid var(--rose);
+      position: relative;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .milestone.on { opacity: 1; transform: none; }
+    .milestone::before {
+      content: "💍";
+      position: absolute;
+      top: -20px; left: 28px;
+      font-size: 1.8rem;
+      background: var(--bg);
+      padding: 0 10px;
+    }
+    .ms-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .ms-text {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    /* ── FINAL LETTER ── */
+    #letter {
+      background: var(--parch);
+      margin: 80px -28px 0;
+      padding: 72px clamp(28px, 7vw, 96px) 96px;
+      border-top: 1px solid var(--warm);
+      position: relative;
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    #letter.on { opacity: 1; transform: none; }
+    #letter::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(to right, transparent, var(--rose), var(--gold), var(--rose), transparent);
+    }
+
+    .l-opener {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      color: var(--rose);
+      margin-bottom: 32px;
+    }
+
+    .l-body p {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.32rem);
+      font-weight: 300;
+      line-height: 2;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+    }
+    .l-body p em    { color: var(--rose-deep); font-style: italic; }
+    .l-body p strong { font-weight: 500; color: var(--ink); }
+
+    .l-sign {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(2rem, 5.5vw, 2.8rem);
+      color: var(--ink);
+      margin-top: 40px;
+    }
+
+    .monogram {
+      text-align: center;
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(3rem, 9vw, 6rem);
+      color: rgba(158,58,80,0.08);
+      padding: 48px 0 12px;
+      user-select: none;
+    }
+
+    /* ══════════════════
+       KEYFRAMES
+    ══════════════════ */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes kenburns {
+      from { transform: scale(1.06); }
+      to   { transform: scale(1.0); }
+    }
+    @keyframes tickPulse {
+      0%,100% { opacity: 0.35; }
+      50%      { opacity: 0.9; }
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 500px) {
+      .pair { grid-template-columns: 1fr; }
+      .pair img { height: 220px; }
+      .side, .side.flip { grid-template-columns: 1fr; }
+      .side-note { text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<canvas id="petal-canvas"></canvas>
-<div id="bg"></div>
-<div id="bg-next"></div>
+<!-- HERO -->
+<section id="hero">
+  <div id="hero-img"></div>
+  <div id="hero-text">
+    <p class="hero-small">April 6, 2026 &nbsp;·&nbsp; Month Twenty-One</p>
+    <h1 class="hero-name">for you</h1>
+    <p class="hero-sub">1 year &amp; 9 months — and still the luckiest</p>
+    <div class="scroll-cue">
+      <span>keep reading</span>
+      <div class="scroll-tick"></div>
+    </div>
+  </div>
+</section>
 
-<div id="frame">
-  <div class="corner-bl"></div>
-  <div class="corner-br"></div>
-  <div class="line-top"></div>
-  <div class="line-bottom"></div>
-  <div class="line-left"></div>
-  <div class="line-right"></div>
-</div>
+<div class="page">
 
-<div id="counter"></div>
-<div id="monogram">S ♡ A</div>
+  <div class="rule reveal"><span class="rule-label">a note, month twenty-one</span></div>
 
-<div id="slide-panel">
-  <div id="header-group">
-    <div class="eyebrow">March 6 &nbsp;·&nbsp; 1 Year &amp; 8 Months</div>
-    <h1>Happy <em>1 Year 8 Months</em>,<br>My Love ❤️</h1>
-    <div class="sub-line">A little late — but every word is meant with all of me.</div>
-    <div class="proposal-pill">💍 &nbsp; She Said Yes &nbsp;·&nbsp; March 8</div>
+  <!-- Entry 1 — drop cap, sets the tone: she is the cutest human -->
+  <div class="prose dropcap reveal">
+    <p>
+      I have been trying to figure out how to say this properly for a while now.
+      Not the big things — those are easy. Of course I love you. Of course you are everything.
+      But this is about something smaller and more specific and honestly more embarrassing to admit:
+    </p>
+    <p>
+      <em>you are genuinely the cutest human being I have ever encountered in my entire life.</em>
+    </p>
+    <p>
+      And I notice it constantly. In ways you would probably roll your eyes at if I said them out loud.
+      So I'm writing them down instead. Because you deserve to know exactly what I see
+      when I look at you.
+    </p>
   </div>
 
-  <div id="msg-card">
-    <div id="msg-text"></div>
-    <span class="ornament" id="ornament">— ♡ —</span>
-    <span class="late-tag" id="late-tag"></span>
+  <!-- Photo 1 — full bleed -->
+  <div class="photo reveal">
+    <img src="pics/2.jpg" alt="" class="photo-wide"/>
   </div>
-</div>
 
-<div id="nav-bar">
-  <button class="nav-btn" id="prev">&#8592;</button>
-  <div id="dots-row"></div>
-  <button class="nav-btn" id="next">&#8594;</button>
-</div>
+  <!-- The "seen" section — specific observations about her -->
+  <div class="seen-section reveal">
+    <p class="seen-label">things I notice · things you don't know I notice</p>
+
+    <div class="seen-item">
+      <div class="seen-dot"></div>
+      <div class="seen-text">
+        The face you make when you're trying not to smile but it's happening anyway —
+        like you're fighting it and losing and <em>that</em> is the best version of any expression
+        a human face has ever made.
+      </div>
+    </div>
+
+    <div class="seen-item">
+      <div class="seen-dot"></div>
+      <div class="seen-text">
+        The way you get genuinely, completely absorbed in small things.
+        Fully present. Fully you.
+        I could watch that for the rest of my life and not get tired of it.
+      </div>
+    </div>
+
+    <div class="seen-item">
+      <div class="seen-dot"></div>
+      <div class="seen-text">
+        How you look when you first wake up and you're still half asleep
+        and completely unguarded — and somehow that is the most beautiful
+        you ever look. <em>Softest person alive.</em>
+      </div>
+    </div>
+
+    <div class="seen-item">
+      <div class="seen-dot"></div>
+      <div class="seen-text">
+        The specific way you laugh when something actually catches you off guard —
+        not the polite laugh, the real one —
+        and the way the whole room changes when that happens.
+      </div>
+    </div>
+
+    <div class="seen-item">
+      <div class="seen-dot"></div>
+      <div class="seen-text">
+        How hard you try, even when you think no one is watching.
+        Especially then.
+        I'm always watching. I always see it.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Polaroid -->
+  <div class="photo reveal">
+    <div class="polaroid-wrap">
+      <div class="polaroid">
+        <img src="pics/3.jpg" alt=""/>
+        <div class="pol-cap">the cutest one, always</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote reveal">"I could pick you out of any room, any crowd, anywhere."</div>
+
+  <!-- Entry 2 -->
+  <div class="prose reveal">
+    <p>
+      21 months in and I still do a double take sometimes.
+      Not because I've forgotten — but because I genuinely cannot believe
+      that <em>you</em> are the person who decided I was worth loving.
+    </p>
+    <p>
+      You have this quality that is very hard to describe.
+      You're not trying to be anything. You're just <strong>completely, effortlessly yourself</strong> —
+      and that self happens to be the most endearing thing in existence.
+    </p>
+  </div>
+
+  <!-- Pair -->
+  <div class="photo reveal">
+    <div class="pair">
+      <img src="pics/4.jpg" alt=""/>
+      <img src="pics/5.jpg" alt=""/>
+    </div>
+  </div>
+
+  <!-- Proposal milestone -->
+  <div class="milestone reveal">
+    <div class="ms-label">almost 1 month · March 8, 2026</div>
+    <div class="ms-text">
+      A month ago I asked you to marry me. You said yes before I even finished the sentence.
+      I think about that a lot.
+    </div>
+  </div>
+
+  <!-- Entry 3 — proposal + future -->
+  <div class="prose reveal">
+    <p>
+      I keep thinking about that moment on March 8th.
+      Not the grand version of it — just the real, quiet version.
+      The part where I looked at you and thought:
+      <em>there is no one else. There has never been anyone else.</em>
+    </p>
+    <p>
+      And you looked back at me like you already knew.
+      Like we'd both known for a long time and this was just
+      finally saying it out loud in front of the sky.
+    </p>
+  </div>
+
+  <!-- Side photo -->
+  <div class="photo reveal">
+    <div class="side flip">
+      <img src="pics/6.jpg" alt=""/>
+      <div class="side-note">"the one I will keep choosing, every single time"</div>
+    </div>
+  </div>
+
+  <div class="quote reveal">"Nobody else makes ordinary feel like this."</div>
+
+  <!-- Entry 4 — the waiting, reframed through cuteness -->
+  <div class="prose reveal">
+    <p>
+      I know things are still uncertain. I know the waiting is heavy.
+      But I want to tell you something that is completely true and slightly ridiculous:
+    </p>
+    <p>
+      even on the hardest days, <em>you are still the cutest person in every room you walk into.</em>
+      Including the rooms where you're stressed. Including the rooms where you're tired.
+      Including every version of you that you think isn't your best one.
+    </p>
+    <p>
+      Those versions are my favourite ones. Because they're the most real.
+      And I have the privilege of being the person who gets to see them.
+    </p>
+  </div>
+
+  <!-- Pair -->
+  <div class="photo reveal">
+    <div class="pair">
+      <img src="pics/7.jpg" alt=""/>
+      <img src="pics/8.jpg" alt=""/>
+    </div>
+  </div>
+
+</div><!-- end .page -->
+
+<!-- FINAL LETTER -->
+<section id="letter" class="reveal">
+  <div class="l-opener">My love,</div>
+  <div class="l-body">
+    <p>
+      21 months. Almost a month since the proposal.
+      And I'm still finding new things about you that make me think —
+      <em>how did I get this lucky?</em>
+    </p>
+    <p>
+      This one isn't about how strong you are or how hard things have been,
+      even though both of those things are true and I mean them.
+      This one is just about <strong>you</strong>. The small things. The real things.
+      The things I notice when you're not trying to be anything for anyone.
+    </p>
+    <p>
+      You are the cutest human to exist. I need you to know that I don't say that lightly.
+      I say it because it is specific and accurate and I have 21 months of evidence.
+    </p>
+    <p>
+      I see you. Not the version you present to the world.
+      The real one — the soft one, the silly one, the one who is quietly carrying a lot
+      and still manages to make everything around her a little warmer.
+    </p>
+    <p>
+      I cannot wait to marry you. I cannot wait for all of it.
+      But mostly I just cannot wait to keep noticing things about you
+      for the rest of my life.
+    </p>
+  </div>
+  <div class="l-sign">— always your chonks ❤️</div>
+  <div class="monogram">S ♡ A</div>
+</section>
 
 <script>
-const slides = [
-  {
-    bg: "love1.jpg",
-    text: `1 year and 8 months with you. ❤️<br><br>
-           I know I'm a little late, but I needed you to have this anyway.<br><br>
-           I still wake up grateful — because somehow, across everything, you are mine.`,
-    late: ""
-  },
-  {
-    bg: "love2.jpg",
-    text: `March 6th came quietly.<br><br>
-           Our anniversary — no grand celebration, just us — and still,<br>
-           I felt the full weight of how much you mean to me.<br><br>
-           I hope you felt me loving you across every mile. 🌙`,
-    late: "Happy (belated) 1 Year &amp; 8 Months, my love."
-  },
-  {
-    bg: "love3.jpg",
-    text: `And then March 8th happened.<br><br>
-           I got on one knee and asked you to be mine forever.<br><br>
-           You said <em>yes</em> — and the whole world rearranged itself. 💍`,
-    late: ""
-  },
-  {
-    bg: "love4.jpg",
-    text: `The ring looked beautiful on your hand.<br><br>
-           But honestly, you make everything beautiful just by being in it.<br><br>
-           I have never been more certain of anything in my life. 🌸`,
-    late: ""
-  },
-  {
-    bg: "love5.jpg",
-    text: `I know we are still waiting. Still in the middle of the unknown.<br><br>
-           But I need you to hear this clearly:<br><br>
-           I am not going anywhere. Not even close. 💗`,
-    late: ""
-  },
-  {
-    bg: "love6.jpg",
-    text: `Dates move. Plans shift. Life is unfair sometimes.<br><br>
-           What does not shift — not even a little — is what I feel for you.<br><br>
-           That only grows. Every. Single. Day.`,
-    late: ""
-  },
-  {
-    bg: "love7.jpg",
-    text: `I know the uncertainty is heavy to carry.<br><br>
-           Let me carry it with you. That is what we are now — <em>fiancés</em>.<br><br>
-           You are not doing this alone, and you never will be again. 💛`,
-    late: ""
-  },
-  {
-    bg: "love8.jpg",
-    text: `Through all the hard days, the waiting, the not-knowing —<br><br>
-           you still love so deeply. You still hold us together.<br><br>
-           That strength in you is one of the most beautiful things I have ever seen.`,
-    late: ""
-  },
-  {
-    bg: "love9.jpg",
-    text: `One day this will all be a story we tell by firelight.<br><br>
-           We'll sit together, finally settled, finally home, and say:<br><br>
-           <em>"Remember how hard it was? Look at us now."</em> 🏡`,
-    late: ""
-  },
-  {
-    bg: "love10.jpg",
-    text: `Until that day — here is what I know for certain:<br><br>
-           You are my home. My calm. My favorite person on this earth.<br><br>
-           Home was never a place. It has always, always been you.`,
-    late: ""
-  },
-  {
-    bg: "love10.jpg",
-    isFinal: true
-  }
-];
-
-const bgEl    = document.getElementById('bg');
-const bgNext  = document.getElementById('bg-next');
-const msgText = document.getElementById('msg-text');
-const ornEl   = document.getElementById('ornament');
-const lateEl  = document.getElementById('late-tag');
-const headerEl= document.getElementById('header-group');
-const dotsRow = document.getElementById('dots-row');
-let currentBg = "";
-let current   = 0;
-const TOTAL   = slides.length;
-
-/* dots */
-slides.forEach((_, i) => {
-  const d = document.createElement('div');
-  d.className = 'dot';
-  d.addEventListener('click', () => goTo(i));
-  dotsRow.appendChild(d);
-});
-
-function setBackground(img) {
-  if (img === currentBg) return;
-  bgNext.style.backgroundImage = `url('${img}')`;
-  bgNext.style.opacity = 0;
-  requestAnimationFrame(() => {
-    bgNext.style.opacity = 1;
-    setTimeout(() => {
-      bgEl.style.backgroundImage = `url('${img}')`;
-      bgNext.style.opacity = 0;
-      currentBg = img;
-    }, 1650);
-  });
-}
-
-function goTo(idx) {
-  current = ((idx % TOTAL) + TOTAL) % TOTAL;
-  const s = slides[current];
-
-  setBackground(s.bg);
-
-  msgText.classList.add('msg-hidden');
-  ornEl.style.opacity  = 0;
-  lateEl.style.opacity = 0;
-
-  setTimeout(() => {
-    if (s.isFinal) {
-      msgText.innerHTML = `
-        <span class="final-title">A note, just for you 💌</span>
-        <div class="final-body">
-          <p>My love,</p>
-          <p>I know I'm a little late with this. But I needed you to have it anyway.</p>
-          <p>We thought we'd be married by now. We had a date, a dream, a whole future mapped out. Instead we found ourselves in more waiting, more uncertainty.</p>
-          <p>But between our 1 year 8 months on the 6th and your <em>yes</em> on the 8th — this has still been one of the most meaningful weeks of my life. You chose me. Knowing everything that comes with it, you still said yes.</p>
-          <p>I see you being strong. I see you carrying more than you should. You don't have to carry it alone. I am right here - choosing you every morning, waiting alongside you, building toward <em>us</em>.</p>
-          <p>The hard season won't last forever. But us? We will.</p>
-          <p class="sig">— Always your chonks ❤️</p>
-        </div>`;
-      ornEl.style.display  = 'none';
-      lateEl.style.display = 'none';
-      headerEl.style.display = 'none';
-    } else {
-      headerEl.style.display = '';
-      ornEl.style.display    = 'block';
-      lateEl.style.display   = 'block';
-      msgText.innerHTML      = s.text;
-      lateEl.innerHTML       = s.late || '';
-      ornEl.style.opacity    = 1;
-      lateEl.style.opacity   = 1;
-    }
-    msgText.classList.remove('msg-hidden');
-    msgText.style.opacity   = 1;
-    msgText.style.transform = 'translateY(0)';
-  }, 420);
-
-  document.getElementById('counter').textContent = `${current + 1} / ${TOTAL}`;
-  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
-}
-
-document.getElementById('prev').addEventListener('click', () => goTo(current - 1));
-document.getElementById('next').addEventListener('click', () => goTo(current + 1));
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight') goTo(current + 1);
-  if (e.key === 'ArrowLeft')  goTo(current - 1);
-});
-let tx = null;
-document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-document.addEventListener('touchend', e => {
-  if (tx === null) return;
-  const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) > 45) goTo(current + (dx < 0 ? 1 : -1));
-  tx = null;
-});
-
-/* ── FLOATING PETALS ── */
-const canvas = document.getElementById('petal-canvas');
-const ctx    = canvas.getContext('2d');
-let W, H;
-function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-resize();
-window.addEventListener('resize', resize);
-
-const COLORS = [
-  [244,160,184], [255,200,218], [212,168,75], [255,230,240], [210,120,150]
-];
-
-function rand(a, b) { return a + Math.random() * (b - a); }
-
-function makePetal(scatter) {
-  return {
-    x: rand(0, W),
-    y: scatter ? rand(0, H) : rand(-150, -10),
-    vx: rand(-0.4, 0.4),
-    vy: rand(0.5, 1.3),
-    rot: rand(0, Math.PI * 2),
-    vrot: rand(-0.02, 0.02),
-    rw: rand(7, 15),
-    rh: rand(4, 9),
-    alpha: rand(0.22, 0.50),
-    col: COLORS[Math.floor(rand(0, COLORS.length))],
-    wave: rand(0, Math.PI * 2),
-    ws: rand(0.012, 0.03),
-    wa: rand(0.4, 1.1)
-  };
-}
-
-const petals = Array.from({ length: 30 }, () => makePetal(true));
-
-(function loop() {
-  ctx.clearRect(0, 0, W, H);
-  petals.forEach(p => {
-    p.wave += p.ws;
-    p.x += p.vx + Math.sin(p.wave) * p.wa;
-    p.y += p.vy;
-    p.rot += p.vrot;
-    if (p.y > H + 20) Object.assign(p, makePetal(false));
-
-    ctx.save();
-    ctx.translate(p.x, p.y);
-    ctx.rotate(p.rot);
-    ctx.fillStyle = `rgba(${p.col[0]},${p.col[1]},${p.col[2]},${p.alpha})`;
-    ctx.beginPath();
-    ctx.ellipse(0, 0, p.rw / 2, p.rh / 2, 0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  });
-  requestAnimationFrame(loop);
-})();
-
-goTo(0);
+  /* scroll reveal */
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(el => io.observe(el));
 </script>
 </body>
 </html>
