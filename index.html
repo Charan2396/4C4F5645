@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>22 Months — Still Yours ❤️</title>
+  <title>23 Months — Still Yours ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Sacramento&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
 
@@ -30,9 +30,6 @@
       overflow-x: hidden;
     }
 
-    /* ══════════════════════════════
-       NIGHT SKY CANVAS — fixed bg
-    ══════════════════════════════ */
     #sky {
       position: fixed;
       inset: 0;
@@ -40,9 +37,6 @@
       pointer-events: none;
     }
 
-    /* ══════════════════════════════
-       SECTION BASE
-    ══════════════════════════════ */
     section {
       position: relative;
       z-index: 2;
@@ -54,12 +48,8 @@
       padding: 80px 28px;
     }
 
-    /* ══════════════════════════════
-       1. OPENING — the distance
-    ══════════════════════════════ */
-    #opening {
-      text-align: center;
-    }
+    /* ══ 1. OPENING ══ */
+    #opening { text-align: center; }
 
     .miles-label {
       font-family: 'Inter', sans-serif;
@@ -94,7 +84,6 @@
       animation: fadeUp 1.2s 1.1s forwards;
     }
 
-    /* two dots connected by a line — visual metaphor */
     .distance-visual {
       display: flex;
       align-items: center;
@@ -104,10 +93,7 @@
       opacity: 0;
       animation: fadeUp 1.2s 1.5s forwards;
     }
-    .city-block {
-      text-align: center;
-      flex-shrink: 0;
-    }
+    .city-block { text-align: center; flex-shrink: 0; }
     .city-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
@@ -133,7 +119,7 @@
       margin-bottom: 18px;
     }
     .distance-line::after {
-      content: "22 months";
+      content: "23 months";
       position: absolute;
       top: -18px;
       left: 50%;
@@ -164,10 +150,8 @@
       animation: arrowPulse 2s infinite;
     }
 
-    /* ══════════════════════════════
-       2. APOLOGY SLIDE
-    ══════════════════════════════ */
-    #apology {
+    /* ══ 2. THE HONEST OPENING (replaces apology) ══ */
+    #honest {
       background: rgba(14,8,18,0.82);
       backdrop-filter: blur(2px);
       text-align: center;
@@ -175,62 +159,42 @@
       border-bottom: 1px solid rgba(232,224,208,0.06);
     }
 
-    .apology-tag {
+    .honest-tag {
       font-family: 'Inter', sans-serif;
       font-size: 0.6rem;
       font-weight: 300;
       letter-spacing: 0.42em;
       text-transform: uppercase;
       color: rgba(232,128,154,0.5);
-      margin-bottom: 28px;
+      margin-bottom: 36px;
     }
 
-    .apology-days {
-      font-family: 'Sacramento', cursive;
-      font-size: clamp(5rem, 18vw, 11rem);
-      line-height: 0.9;
-      color: var(--rose);
-      text-shadow: 0 0 80px rgba(232,128,154,0.2);
-      margin-bottom: 8px;
-    }
-
-    .apology-days-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(232,128,154,0.45);
-      margin-bottom: 44px;
-    }
-
-    .apology-text {
-      max-width: 560px;
+    .honest-text {
+      max-width: 580px;
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: clamp(1.15rem, 3vw, 1.5rem);
-      line-height: 1.9;
+      line-height: 1.95;
       color: rgba(232,224,208,0.82);
     }
-    .apology-text em { color: var(--rose-lt); font-style: normal; }
+    .honest-text em { color: var(--rose-lt); font-style: normal; }
 
-    .apology-parents {
+    .honest-note {
       margin-top: 36px;
-      max-width: 480px;
+      max-width: 500px;
       background: rgba(232,224,208,0.04);
       border: 1px solid rgba(232,224,208,0.1);
       border-radius: 2px;
-      padding: 22px 28px;
+      padding: 24px 28px;
       font-family: 'Cormorant', serif;
       font-size: clamp(1rem, 2.3vw, 1.2rem);
       font-weight: 300;
-      line-height: 1.85;
-      color: rgba(232,224,208,0.55);
+      line-height: 1.9;
+      color: rgba(232,224,208,0.58);
       font-style: italic;
     }
 
-    /* ══════════════════════════════
-       3. PHOTO SECTION — full dark
-    ══════════════════════════════ */
+    /* ══ 3. PHOTOS ══ */
     #photos {
       padding: 100px 28px;
       min-height: auto;
@@ -271,16 +235,14 @@
       padding: 8px 0;
     }
 
-    /* ══════════════════════════════
-       4. PROMISE / WORKING TOWARD
-    ══════════════════════════════ */
-    #promise {
+    /* ══ 4. WHAT I KNOW (replaces promise) ══ */
+    #anchor {
       text-align: center;
       max-width: 680px;
       margin: 0 auto;
     }
 
-    .promise-label {
+    .anchor-label {
       font-family: 'Inter', sans-serif;
       font-size: 0.62rem;
       letter-spacing: 0.42em;
@@ -289,13 +251,12 @@
       margin-bottom: 32px;
     }
 
-    /* the steps — visual timeline going upward */
     .steps {
       display: flex;
       flex-direction: column;
       gap: 0;
       margin: 0 auto 52px;
-      max-width: 480px;
+      max-width: 500px;
       text-align: left;
     }
     .step {
@@ -352,7 +313,7 @@
       line-height: 1.75;
     }
 
-    .promise-quote {
+    .anchor-quote {
       font-family: 'Sacramento', cursive;
       font-size: clamp(2.2rem, 7vw, 4rem);
       color: var(--gold);
@@ -360,15 +321,13 @@
       text-shadow: 0 0 60px rgba(201,168,76,0.15);
     }
 
-    /* ══════════════════════════════
-       5. FINAL — the letter
-    ══════════════════════════════ */
+    /* ══ 5. FINAL LETTER ══ */
     #final {
       max-width: 640px;
       margin: 0 auto;
       text-align: left;
       padding-top: 60px;
-      padding-bottom: 120px;
+      padding-bottom: 80px;
     }
 
     .final-date {
@@ -411,6 +370,50 @@
       color: var(--cream);
     }
 
+    /* ══ 6. REDWOOD — the small light at the end ══ */
+    #redwood {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    .redwood-card {
+      background: linear-gradient(160deg, rgba(201,168,76,0.07), rgba(232,128,154,0.05));
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 3px;
+      padding: 40px 32px;
+    }
+    .redwood-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+      margin-bottom: 18px;
+    }
+    .redwood-title {
+      font-family: 'Sacramento', cursive;
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      color: var(--gold-lt);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .redwood-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+      color: rgba(232,224,208,0.7);
+      margin-bottom: 18px;
+    }
+    .redwood-desc {
+      font-family: 'Cormorant', serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 2.3vw, 1.18rem);
+      line-height: 1.85;
+      color: rgba(232,224,208,0.6);
+    }
+    .redwood-desc strong { color: var(--rose-lt); font-weight: 400; }
+
     /* monogram */
     .mono {
       text-align: center;
@@ -422,9 +425,6 @@
       position: relative; z-index: 2;
     }
 
-    /* ══════════════════════════════
-       REVEAL
-    ══════════════════════════════ */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -432,9 +432,6 @@
     }
     .reveal.on { opacity: 1; transform: none; }
 
-    /* ══════════════════════════════
-       KEYFRAMES
-    ══════════════════════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: none; }
@@ -442,10 +439,6 @@
     @keyframes arrowPulse {
       0%,100% { opacity: 0.25; transform: scaleY(1); }
       50%     { opacity: 0.7;  transform: scaleY(1.15); }
-    }
-    @keyframes twinkle {
-      0%,100% { opacity: 1; }
-      50%     { opacity: 0.2; }
     }
 
     @media (max-width: 500px) {
@@ -462,9 +455,9 @@
 
 <!-- ══ 1. OPENING ══ -->
 <section id="opening">
-  <p class="miles-label">Month Twenty-Two &nbsp;·&nbsp; May 6, 2026</p>
+  <p class="miles-label">Month Twenty-Three &nbsp;·&nbsp; June 6, 2026</p>
   <h1 class="opening-title">still yours</h1>
-  <p class="opening-sub">1 year &amp; 10 months of choosing each other across the distance</p>
+  <p class="opening-sub">1 year &amp; 11 months of picking each other — even on the hard days</p>
 
   <div class="distance-visual">
     <div class="city-block">
@@ -482,22 +475,21 @@
   <span class="scroll-arrow"></span>
 </section>
 
-<!-- ══ 2. APOLOGY ══ -->
-<section id="apology">
-  <p class="apology-tag reveal">an honest note first</p>
-  <div class="apology-days reveal">5</div>
-  <p class="apology-days-label reveal">days late &nbsp;·&nbsp; I know</p>
-  <p class="apology-text reveal">
-    I am not going to give reasons.
-    I was supposed to have this for you on the 6th.
-    It is the 11th. <em>I'm sorry.</em>
-    Not the easy kind of sorry — the kind where I actually sat with the guilt
-    of not showing up the way you deserve.
+<!-- ══ 2. THE HONEST OPENING ══ -->
+<section id="honest">
+  <p class="honest-tag reveal">no pretending this month</p>
+  <p class="honest-text reveal">
+    I'm not going to act like everything is okay right now.
+    It's not. The distance has been hard. Your job has been draining you.
+    And I messed up a few days ago, and I'm still thinking about it.
+    <em>I'm not writing this to look good.</em>
+    I just want you to know — I see how much you've been carrying,
+    and I'm not going anywhere.
   </p>
-  <div class="apology-parents reveal">
-    My parents are here visiting. The days blurred. But here is what didn't blur —
-    the fact that it was our month, and you deserved something in your hands on time.
-    I'll do better. I mean that.
+  <div class="honest-note reveal">
+    I can't fix the distance tonight, or fix your job, or take back the
+    moment I let you down. But I can be honest with you, keep showing up,
+    and remind you on the worst days that I'm still here, still picking you.
   </div>
 </section>
 
@@ -514,7 +506,7 @@
   </div>
 
   <div class="photo-row side">
-    <div class="photo-caption">"every photo of you is my favourite one"</div>
+    <div class="photo-caption">"good days or bad days — still you"</div>
     <img src="pics/4.jpg" alt=""/>
   </div>
 
@@ -530,9 +522,9 @@
 
 </div>
 
-<!-- ══ 4. PROMISE ══ -->
-<section id="promise">
-  <p class="promise-label reveal">what I am working toward</p>
+<!-- ══ 4. WHAT I KNOW ══ -->
+<section id="anchor">
+  <p class="anchor-label reveal">what I know, even now</p>
 
   <div class="steps">
     <div class="step reveal" style="transition-delay:0.1s">
@@ -541,8 +533,8 @@
         <div class="step-connector"></div>
       </div>
       <div class="step-body">
-        <div class="step-title">Getting there.</div>
-        <div class="step-desc">Not just saying it. Actually making moves. Every decision I take from here has you at the end of it.</div>
+        <div class="step-title">You're allowed to be tired.</div>
+        <div class="step-desc">Of the distance, of your job, of holding it all together. You don't have to be okay for me. Just let me be here.</div>
       </div>
     </div>
 
@@ -552,8 +544,8 @@
         <div class="step-connector"></div>
       </div>
       <div class="step-body">
-        <div class="step-title">Closing the distance.</div>
-        <div class="step-desc">I am tired of miles. I am tired of screen time. I am working so that one day the answer to "where are you" is simply - next to you.</div>
+        <div class="step-title">I feel helpless too sometimes.</div>
+        <div class="step-desc">I wish I could take the hard stuff off you. I can't always. But I can listen, and I can make sure you're not doing it alone.</div>
       </div>
     </div>
 
@@ -563,8 +555,8 @@
         <div class="step-connector"></div>
       </div>
       <div class="step-body">
-        <div class="step-title">Showing up better.</div>
-        <div class="step-desc">5 days late this month. Never again if I can help it. You deserve someone who shows up on time - I am becoming that.</div>
+        <div class="step-title">I know I messed up.</div>
+        <div class="step-desc">No excuses. I let you down, and I'm not going to pretend I didn't. I'd rather just own it.</div>
       </div>
     </div>
 
@@ -574,8 +566,8 @@
         <div class="step-connector"></div>
       </div>
       <div class="step-body">
-        <div class="step-title">Building the life.</div>
-        <div class="step-desc">The one we talked about. The one that still feels far away on the hard days. I haven't stopped building toward it — not for a single day.</div>
+        <div class="step-title">The distance isn't forever.</div>
+        <div class="step-desc">It feels like it on the bad days. But it's just one part of our story, not the end of it. I haven't stopped working to close it.</div>
       </div>
     </div>
 
@@ -584,55 +576,72 @@
         <div class="step-dot"></div>
       </div>
       <div class="step-body">
-        <div class="step-title">Marrying you.</div>
-        <div class="step-desc">The whole point. The reason for all of it. You said yes on March 8th and I have not stopped moving toward that day since.</div>
+        <div class="step-title">I'm still here.</div>
+        <div class="step-desc">That's the one thing that never changes. Through the hard weeks, the mistakes, the miles — I'm still here, and I'm still yours.</div>
       </div>
     </div>
   </div>
 
-  <div class="promise-quote reveal">"the distance is temporary.<br>us is not."</div>
+  <div class="anchor-quote reveal">"the hard part is real.<br>so are we."</div>
 </section>
 
 <!-- ══ 5. FINAL LETTER ══ -->
 <section id="final" class="reveal">
-  <p class="final-date">May 11, 2026 &nbsp;·&nbsp; 22 months &nbsp;·&nbsp; 5 days late</p>
+  <p class="final-date">June 6, 2026 &nbsp;·&nbsp; 23 months &nbsp;·&nbsp; on time</p>
   <div class="final-salutation">My love,</div>
   <div class="final-body">
     <p>
-      22 months. And I'm still sitting here on the wrong side of the distance,
-      writing this 5 days late, with my parents asleep in the next room,
-      feeling the very specific guilt of someone who knows they owe you more
-      than they've been giving lately.
+      I'm not going to dress this month up. It's been a hard one for you,
+      and I didn't make it easier the way I should have. The distance is
+      pulling on both of us, your job is taking more than it gives back,
+      and I let you down a few days ago. I'm not hiding from any of that,
+      because you deserve me being real with you more than you deserve a pretty page.
     </p>
     <p>
-      I haven't been as present as I should be. I know that.
-      You have been patient in a way that I don't think I fully deserve -
-      and that patience isn't invisible to me. <em>I see it. I feel it.
-      And it makes me want to be better.</em>
+      Here's what's underneath all of it: <em>I see you.</em> I see how much
+      you carry, how patient you've been, how tired you are even when you
+      don't say it out loud. You don't have to be the strong one all the time.
+      <strong>Lean on me. That's what I'm here for.</strong>
     </p>
     <p>
-      Here is what I want you to hold onto on the days it feels far and heavy:
-      <strong>every single thing I am doing is pointed at you.</strong>
-      The hard work, the long days, the waiting, the grinding — all of it
-      has a direction. And that direction is you.
+      I feel helpless more than I let on — wishing I could fix your days,
+      close the miles, take the weight off you. I can't always.
+      But I can promise you this: you're not doing any of it on your own.
+      Not the job, not the distance, not the bad days. <em>None of it.</em>
     </p>
     <p>
-      I am going to get to you. Not as a dream. As a plan.
-      As the only thing that makes the rest of it worth it.
+      23 months. We've been through worse and come out still picking each other.
+      We will again. I'm not going anywhere, and the good part at the end of
+      this isn't a maybe — it's a when.
     </p>
     <p>
-      22 months down. The last stretch ahead.
-      I'd do all of it again without blinking.
+      I love you on the good days and the bad ones exactly the same.
+      I'd do all of it again without thinking twice.
     </p>
   </div>
   <div class="final-rule"></div>
   <div class="final-sign">— always your chonks ❤️</div>
 </section>
 
+<!-- ══ 6. REDWOOD — the light at the end ══ -->
+<section id="redwood">
+  <div class="redwood-card reveal">
+    <p class="redwood-tag">one month from now</p>
+    <div class="redwood-title">the redwoods</div>
+    <p class="redwood-date">July 6, 2026 &nbsp;·&nbsp; our 2 years</p>
+    <p class="redwood-desc">
+      In a month we'll be standing under trees older than every hard day
+      we've ever had — together, in the same place, no phone screen between us.
+      <strong>Two years.</strong> A real one, side by side. Something to hold
+      onto when the distance feels long: it won't always be miles.
+      Right now it's just a few weeks until you.
+    </p>
+  </div>
+</section>
+
 <div class="mono">S ♡ A</div>
 
 <script>
-/* ── STAR FIELD ── */
 const canvas = document.getElementById('sky');
 const ctx = canvas.getContext('2d');
 let W, H;
@@ -655,7 +664,6 @@ const STARS = Array.from({ length: 220 }, () => ({
   phase: rand(0, Math.PI * 2)
 }));
 
-/* two glowing "dots" for the cities — match the visual above */
 function drawGlow(x, y, color, radius) {
   const g = ctx.createRadialGradient(x, y, 0, x, y, radius);
   g.addColorStop(0, color);
@@ -670,7 +678,6 @@ let t = 0;
 (function loop() {
   ctx.clearRect(0, 0, W, H);
 
-  /* stars */
   STARS.forEach(s => {
     const flicker = s.a * (0.6 + 0.4 * Math.sin(t * s.speed * 1000 + s.phase));
     ctx.beginPath();
@@ -679,7 +686,6 @@ let t = 0;
     ctx.fill();
   });
 
-  /* gentle ambient glows — one rose, one gold */
   drawGlow(W * 0.25, H * 0.5, 'rgba(232,128,154,0.04)', W * 0.35);
   drawGlow(W * 0.78, H * 0.4, 'rgba(201,168,76,0.04)',  W * 0.3);
 
@@ -687,7 +693,6 @@ let t = 0;
   requestAnimationFrame(loop);
 })();
 
-/* ── SCROLL REVEAL ── */
 const revealEls = document.querySelectorAll('.reveal, .step');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
