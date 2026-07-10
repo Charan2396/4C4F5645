@@ -204,6 +204,28 @@
   .polaroid.gold .frame{ box-shadow: inset 0 0 0 2px var(--gold); }
   .polaroid.gold .cap{ color:var(--velvet); }
 
+  /* hero polaroids — day one, front and center, bigger than the rest */
+  .polaroid.hero{
+    width:290px;
+    padding:18px 18px 56px 18px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.5), 0 0 60px rgba(232,180,120,0.18);
+    z-index:15;
+  }
+  .polaroid.hero .cap{
+    font-size:1.35rem;
+    bottom:12px;
+  }
+  .day-one-tag{
+    position:absolute;
+    z-index:14;
+    font-family:'Special Elite',monospace;
+    font-size:0.6rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:rgba(247,242,230,0.7);
+    pointer-events:none;
+  }
+
   .pin::before{
     content:"";
     position:absolute;
@@ -558,47 +580,57 @@
     <div class="l-date">july 6, 2026 &middot; two years, on time</div>
     <div class="l-sal">hey you,</div>
     <p>
-      two years. and somehow this one lands on the same day you got the news you've
-      been waiting on for so long. I keep thinking about that — out of every date it
-      could've landed on, it landed on ours. I don't even know what to call that
-      except lucky.
+      I still can't believe I met you in Boston two years ago today. that image
+      of you is stuck in my head forever — I could have amnesia and still
+      remember exactly how cute you looked walking in. you brought me food, you
+      were so nervous for our first meet, and somehow within a few hours we were
+      talking like we'd already been dating for 15 years 😂. I don't know how
+      that happened. I'm just really glad it did.
     </p>
     <p>
-      I am so, so happy for you. that job has been sitting on your chest for way
-      too long and you never stopped showing up anyway. you did that. I just got
-      to watch, and cheer, and now I get to celebrate with you, which might be my
-      favorite part of this whole day.
+      <strong>I LOVE YOU, cutie pooo.</strong> not quietly, not a little —
+      loudly, the way I mean it every single time I say it. I have loved you
+      since the very beginning, and somehow it keeps growing, keeps finding new
+      shapes to take. it doesn't level off. it just keeps getting bigger and more
+      exciting, and I honestly cannot wait to see what it looks like a year from
+      now, five years from now, every year after that.
     </p>
     <p>
-      and Napa — we didn't even drink the wine. we just laid in that spa,
-      walked around the little downtown, came back to that ridiculous cozy room
-      at the river inn, and did absolutely nothing productive for three days.
-      it might be the best nothing I've ever done. exactly what we needed after
-      everything that led up to it.
+      I am so, so proud of you. that job sat on your chest for way too long, and
+      you kept showing up anyway. you did that. I just got to watch, and cheer,
+      and now I get to celebrate with you — which might be my favorite part of
+      this whole day.
     </p>
     <p>
-      I keep coming back to March 8th, too. you in that dress, thinking it was
-      just a nice evening out, and then turning around and seeing the whole thing
-      set up. I got you about <em>95% surprised</em> — close enough that I'm still
-      taking the win. watching your face change when it clicked is something I
-      don't think I'll ever stop replaying.
+      and Napa — we never even drank the wine. we just sat in that spa, wandered
+      the little downtown, came back to that ridiculous cozy room at the river
+      inn, and did absolutely nothing for three days straight. it might be the
+      best nothing I have ever done. exactly what we needed.
     </p>
     <p>
-      <strong>one more thing, and I mean this one seriously:</strong> whatever's going
-      on with me, whatever I'm stressed about, my stuff is mine to carry. it does
-      not get to sit on top of your good days. not this one, not the ones coming
-      after. you worked too hard to get here for anything of mine to take up space
-      in it. I just want you happy. that's genuinely the whole goal.
+      I keep coming back to March 8th, too. you showed up dressed like it was
+      just a nice night out, and then you turned around and saw the whole thing
+      waiting for you. I got you about <em>95% surprised</em> — I'll take that
+      win. the second your face changed is something I don't think I'll ever
+      stop replaying.
     </p>
     <p>
-      the distance is still the hard part. I won't pretend it isn't. but we're
-      closer to closing it than we've ever been, and I have to believe that's
-      coming soon — not just hope it, believe it. once that's done, it's just
-      us, every day, no countdown to the next goodbye.
+      <strong>one more thing, and I mean this seriously:</strong> whatever I'm
+      carrying, whatever I'm stressed about, that's mine to deal with. it doesn't
+      get to sit on top of your good days — not this one, not the ones after it.
+      you worked too hard to get here. I just want you happy. that's the whole
+      goal.
     </p>
     <p>
-      two years down, engaged for months now, still somehow finding new ways to
-      pick you. here's to closing the distance, and to everything after it.
+      the distance is still the hard part, and I won't pretend it isn't. but
+      we're closer to closing it than we have ever been, and I believe it's
+      coming soon. once it's done, it's just us, every single day, no more
+      countdowns to the next goodbye.
+    </p>
+    <p>
+      two years down, engaged for months now, and somehow I'm still finding new
+      ways to fall for you. I love you today, I'll love you tomorrow, and I'll
+      love you louder every year we get to do this.
     </p>
     <div class="l-sign">— your chonks</div>
   </div>
@@ -608,14 +640,14 @@
 /* ============ CONTENT ============ */
 const cards = [
   // ============ SECTION 1: the two-year lead-up (photos 1-61) ============
-  {type:'polaroid', img:'pics/1.jpg',  cap:'', x:60,   y:90,  rot:-6,  style:'pin'},
-  {type:'polaroid', img:'pics/2.jpg',  cap:'', x:290,  y:60,  rot:4,   style:'tape'},
-  {type:'polaroid', img:'pics/3.jpg',  cap:'', x:60,   y:400, rot:5,   style:'pin'},
-  {type:'polaroid', img:'pics/4.jpg',  cap:'', x:330,  y:330, rot:-4,  style:'tape r'},
-  {type:'polaroid', img:'pics/5.jpg',  cap:'', x:120,  y:700, rot:-3,  style:'pin'},
-  {type:'polaroid', img:'pics/6.jpg',  cap:'', x:400,  y:640, rot:6,   style:'tape'},
-  {type:'polaroid', img:'pics/7.jpg',  cap:'', x:230,  y:960, rot:-5,  style:'pin'},
-  {type:'polaroid', img:'pics/8.jpg',  cap:'', x:520,  y:900, rot:3,   style:'tape r'},
+  {type:'polaroid', img:'pics/1.jpg',  cap:'boston, day one', x:60,   y:140, rot:-4,  style:'hero pin'},
+  {type:'polaroid', img:'pics/2.jpg',  cap:'you brought me food',  x:400,  y:60,  rot:3,   style:'hero tape'},
+  {type:'polaroid', img:'pics/3.jpg',  cap:'15 years in, hours in', x:230,  y:470, rot:-3,  style:'hero pin'},
+  {type:'polaroid', img:'pics/4.jpg',  cap:'', x:700,  y:380, rot:-4,  style:'tape r'},
+  {type:'polaroid', img:'pics/5.jpg',  cap:'', x:120,  y:820, rot:-3,  style:'pin'},
+  {type:'polaroid', img:'pics/6.jpg',  cap:'', x:450,  y:760, rot:6,   style:'tape'},
+  {type:'polaroid', img:'pics/7.jpg',  cap:'', x:230,  y:1080, rot:-5,  style:'pin'},
+  {type:'polaroid', img:'pics/8.jpg',  cap:'', x:560,  y:1020, rot:3,   style:'tape r'},
   {type:'polaroid', img:'pics/9.jpg',  cap:'', x:650,  y:150, rot:5,   style:'pin'},
   {type:'polaroid', img:'pics/10.jpg', cap:'', x:900,  y:80,  rot:-4,  style:'tape'},
   {type:'polaroid', img:'pics/11.jpg', cap:'', x:700,  y:420, rot:3,   style:'pin'},
@@ -672,7 +704,7 @@ const cards = [
   {type:'polaroid', img:'pics/61.jpg', cap:'', x:4300, y:940, rot:5,   style:'pin'},
 
   // ============ SECTION 2: THE PROPOSAL ZONE (photos 62-65) ============
-  {type:'story', label:'march 8, 2026', body:'she came dressed like it was just a nice dinner out.\ngot her about 95% surprised \u2014 I\u2019m still taking that win.\nwatching her face change when it clicked...\nI don\u2019t think I ever stop replaying that.', x:4650, y:1450, rot:-3},
+  {type:'story', label:'march 8, 2026', body:'3 things about this day:\n1. magical\n2. nerve wracking for me\n3. you looked stunning (as always &lt;3)', x:4650, y:1450, rot:-3},
   {type:'polaroid', img:'pics/62.jpg', cap:'she said yes', x:4980, y:1380, rot:-6, style:'gold pin gold'},
   {type:'polaroid', img:'pics/63.jpg', cap:'',            x:5220, y:1450, rot:4,  style:'gold tape gold'},
   {type:'polaroid', img:'pics/64.jpg', cap:'still shaking',x:5060, y:1700, rot:-3, style:'gold pin gold'},
@@ -788,6 +820,14 @@ banner.innerHTML = '<div class="pb-eyebrow">the big one</div><div class="pb-titl
 banner.style.left = (4600 + 550) + 'px';
 banner.style.top = '1280px';
 deskInner.appendChild(banner);
+
+// ---- day one tag, above the hero trio (photos 1-3) ----
+const dayOneTag = document.createElement('div');
+dayOneTag.className = 'day-one-tag';
+dayOneTag.textContent = 'where it started';
+dayOneTag.style.left = '110px';
+dayOneTag.style.top = '30px';
+deskInner.appendChild(dayOneTag);
 
 const nodes = [];
 cards.forEach((c, idx) => {
