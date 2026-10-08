@@ -2,535 +2,420 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<title>26 Months, Our September ❤️</title>
+<title>27 Months, The Island and a Promise ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gochi+Hand&family=Space+Mono:wght@400;700&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   :root{
-    --sand:#fdf3e3;
-    --sand-2:#fbe7cf;
-    --gold:#e8b04b;
-    --gold-dk:#c98a2e;
-    --amber:#f2955a;
-    --rose:#e8899b;
-    --rose-dk:#c96379;
+    --parch:#f4e9d2;
+    --parch-2:#ece0c4;
+    --paper:#fbf4e4;
+    --ink:#473722;
+    --ink-soft:#8a7658;
     --ocean:#2f8f9d;
     --ocean-dk:#1c6674;
-    --ink:#4a3730;
-    --ink-soft:#8a7160;
-    --paper:#fffdf8;
+    --ocean-lt:#6cbcc7;
+    --coral:#d9745a;
+    --coral-dk:#b4543c;
+    --palm:#6f8f5a;
+    --gold:#c79a3e;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Poppins',sans-serif;
+    font-family:'Karla',sans-serif;
     color:var(--ink);
-    background:
-      radial-gradient(900px 500px at 100% 0%, rgba(242,149,90,0.18), transparent 60%),
-      radial-gradient(900px 600px at 0% 20%, rgba(232,137,155,0.14), transparent 55%),
-      linear-gradient(180deg, var(--sand) 0%, var(--sand-2) 60%, #f6ddc2 100%);
+    background:var(--parch);
     overflow-x:hidden;
   }
+  /* aged paper grain */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:radial-gradient(rgba(90,65,30,0.10) 1px, transparent 1px);
+    background-size:4px 4px; opacity:0.35;
+  }
+  main{ position:relative; z-index:1; }
 
-  /* rising balloons */
-  #sky{position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;}
-  .balloon{
-    position:absolute; bottom:-140px;
-    width:34px; height:44px; border-radius:50% 50% 48% 48%;
-    opacity:0; animation:rise linear infinite;
-  }
-  .balloon::after{
-    content:""; position:absolute; left:50%; bottom:-26px;
-    width:1px; height:26px; background:rgba(74,55,48,0.25);
-    transform:translateX(-50%);
-  }
-  @keyframes rise{
-    0%{transform:translateY(0) rotate(-4deg); opacity:0;}
-    12%{opacity:0.55;}
-    88%{opacity:0.55;}
-    100%{transform:translateY(-118vh) rotate(4deg); opacity:0;}
-  }
-
-  main{position:relative; z-index:2;}
+  .wrap{ max-width:900px; margin:0 auto; padding:0 22px; }
+  .mono{ font-family:'Space Mono',monospace; }
 
   /* ===== HERO ===== */
   .hero{
-    position:relative;
-    min-height:100vh; overflow:hidden;
-    display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    text-align:center; padding:80px 24px 140px;
-    background:linear-gradient(180deg, #ffe6b8 0%, #ffc98d 38%, #ff9f86 68%, #ef8fa2 100%);
+    text-align:center; padding:84px 22px 60px;
+    background:
+      radial-gradient(600px 300px at 50% 0%, rgba(199,154,62,0.14), transparent 70%),
+      linear-gradient(180deg, var(--parch), var(--parch-2));
+    border-bottom:2px dashed rgba(71,55,34,0.25);
   }
-  .hero .sun{
-    position:absolute; top:16%; left:50%; transform:translateX(-50%);
-    width:180px; height:180px; border-radius:50%;
-    background:radial-gradient(circle at 50% 50%, #fff4d6, #ffd97a 55%, rgba(255,201,120,0) 72%);
-    z-index:0;
-  }
-  .hero .content{ position:relative; z-index:2; }
+  .compass{ width:66px; height:66px; margin:0 auto 18px; opacity:0.8; }
   .eyebrow{
-    font-size:0.72rem; font-weight:600;
-    letter-spacing:0.34em; text-transform:uppercase;
-    color:#a24a4a; margin-bottom:18px;
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--coral-dk); margin-bottom:14px;
   }
   .hero h1{
-    font-family:'Pacifico',cursive;
-    font-size:clamp(3.2rem,13vw,6.6rem);
-    line-height:1.05;
-    color:#fff;
-    text-shadow:0 4px 22px rgba(160,60,70,0.35);
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(2.6rem,8vw,4.6rem); line-height:1.05;
+    color:var(--ink); letter-spacing:0.01em;
   }
-  .hero-greet{
-    font-family:'Fraunces',serif; font-style:italic;
-    font-size:clamp(1.3rem,4vw,2rem);
-    color:#8a2e3c; margin-top:14px;
-    text-shadow:0 2px 12px rgba(255,255,255,0.25);
+  .hero .greet{
+    font-family:'Gochi Hand',cursive;
+    font-size:clamp(1.5rem,5vw,2.3rem); color:var(--coral-dk);
+    margin-top:12px;
   }
   .hero .sub{
-    margin:16px auto 0; max-width:540px;
-    font-size:clamp(1rem,2.6vw,1.18rem);
-    font-weight:400; line-height:1.7;
-    color:#5a2f33;
-  }
-  .hero .sub b{ color:#8a2e3c; font-weight:600; }
-  .scroll-cue{
-    margin-top:34px; font-size:0.62rem; letter-spacing:0.3em;
-    text-transform:uppercase; color:rgba(90,47,51,0.7);
-  }
-  .scroll-cue .arrow{
-    display:block; width:1px; height:32px; margin:9px auto 0;
-    background:linear-gradient(to bottom, #8a2e3c, transparent);
-    animation:bob 2s ease-in-out infinite;
-  }
-  @keyframes bob{0%,100%{transform:scaleY(1);opacity:.5;}50%{transform:scaleY(1.2);opacity:1;}}
-  /* palm silhouettes riding the bottom of the hero */
-  .hero .palms{ position:absolute; left:0; right:0; bottom:-1px; z-index:1; line-height:0; }
-  .hero .palms svg{ width:100%; height:150px; display:block; }
-
-  /* ===== SECTION SHELL ===== */
-  .band{ padding:74px 24px; }
-  .center{ max-width:660px; margin:0 auto; text-align:center; }
-  .label{
-    font-size:0.64rem; font-weight:600; letter-spacing:0.32em;
-    text-transform:uppercase; color:var(--gold-dk); margin-bottom:18px;
-  }
-  .lead{
-    font-size:clamp(1.05rem,2.8vw,1.3rem);
-    line-height:1.8; color:var(--ink); font-weight:400;
-  }
-  .lead b{ color:var(--rose-dk); font-weight:600; }
-
-  /* ===== BIRTHDAYS ===== */
-  .cakes{
-    display:flex; flex-wrap:wrap; gap:26px;
-    justify-content:center; margin-top:34px;
-  }
-  .cake-card{
-    width:min(260px,86vw);
-    background:var(--paper);
-    border-radius:16px;
-    box-shadow:0 16px 34px rgba(74,55,48,0.14);
-    padding:22px 20px 24px;
-    text-align:center;
-  }
-  .cake-when{
-    font-size:0.62rem; font-weight:600; letter-spacing:0.2em;
-    text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px;
-  }
-  .cake-who{
-    font-family:'Pacifico',cursive;
-    font-size:1.9rem; line-height:1; margin-bottom:16px;
-  }
-  .cake-card.her .cake-who{ color:var(--rose-dk); }
-  .cake-card.him .cake-who{ color:var(--ocean-dk); }
-  .cake{ position:relative; width:150px; height:120px; margin:0 auto; cursor:pointer; }
-  .candles{ position:absolute; top:2px; left:0; right:0; display:flex; justify-content:center; gap:16px; z-index:3; }
-  .candle{ position:relative; width:7px; height:30px; border-radius:2px; background:repeating-linear-gradient(45deg,#f6d9e2 0 4px,#fff 4px 8px); }
-  .candle .flame{
-    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
-    width:9px; height:14px; border-radius:50% 50% 50% 50%/60% 60% 40% 40%;
-    background:radial-gradient(circle at 50% 70%, #fff3b0, #ffb03a 60%, #ff7a18);
-    box-shadow:0 0 10px rgba(255,160,40,0.8);
-    animation:flick 0.5s ease-in-out infinite alternate;
-    transform-origin:center bottom;
-  }
-  @keyframes flick{ from{ transform:translateX(-50%) scaleY(1) rotate(-3deg);} to{ transform:translateX(-50%) scaleY(1.15) rotate(3deg);} }
-  .candle.out .flame{ opacity:0; transform:translateX(-50%) scale(0.4); transition:opacity .25s, transform .25s; }
-  .candle.out::after{
-    content:""; position:absolute; top:-16px; left:50%;
-    width:5px; height:5px; border-radius:50%;
-    background:rgba(120,120,120,0.5);
-    animation:smoke 0.9s ease-out forwards;
-  }
-  @keyframes smoke{ 0%{opacity:0.6; transform:translate(-50%,0) scale(1);} 100%{opacity:0; transform:translate(-50%,-24px) scale(2);} }
-  .cake .tiers{ position:absolute; bottom:0; left:50%; transform:translateX(-50%); }
-  .tier{ border-radius:8px 8px 5px 5px; margin:0 auto; }
-  .tier.top{ width:78px; height:34px; background:linear-gradient(180deg,#ffd7e6,#f7b7cf); }
-  .tier.bot{ width:120px; height:44px; background:linear-gradient(180deg,#ffe4b0,#f4c778); margin-top:-4px; }
-  .cake-card.him .tier.top{ background:linear-gradient(180deg,#cdeef2,#a7dbe2); }
-  .cake-card.him .tier.bot{ background:linear-gradient(180deg,#ffe4b0,#f4c778); }
-  .cake .plate{ position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); width:140px; height:10px; border-radius:50%; background:rgba(74,55,48,0.12); }
-  .wish{
-    margin-top:14px; min-height:22px;
-    font-family:'Fraunces',serif; font-style:italic;
-    font-size:0.98rem; color:var(--gold-dk);
-    opacity:0; transition:opacity .5s ease;
-  }
-  .wish.show{ opacity:1; }
-  .cake-hint{ margin-top:8px; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); }
-  .birthday-tie{
-    margin:36px auto 0; max-width:560px;
-    font-family:'Fraunces',serif; font-style:italic;
-    font-size:clamp(1.05rem,2.6vw,1.28rem);
-    line-height:1.7; color:var(--ink); text-align:center;
+    max-width:560px; margin:18px auto 0;
+    font-size:clamp(1rem,2.5vw,1.16rem); line-height:1.75; color:var(--ink-soft);
   }
 
-  /* ===== WEDDING HIGHLIGHT ===== */
-  .wedding{
-    position:relative; text-align:center;
+  /* ===== SECTION TITLES ===== */
+  .sec-title{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(1.8rem,5.5vw,2.8rem); color:var(--ink);
+    text-align:center; margin-bottom:6px;
+  }
+  .sec-kicker{
+    font-family:'Space Mono',monospace;
+    font-size:0.64rem; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--ocean-dk); text-align:center; margin-bottom:12px;
+  }
+
+  /* ===== TRIP / MAP ===== */
+  .trip{ padding:70px 0 40px; }
+  .mapbox{
+    position:relative; max-width:560px; margin:22px auto 10px;
+    background:linear-gradient(180deg,#eaf6f6,#d7edef);
+    border:1px solid rgba(28,102,116,0.3);
+    border-radius:14px; padding:14px;
+    box-shadow:0 14px 30px rgba(71,55,34,0.12);
+  }
+  .mapbox svg{ width:100%; height:auto; display:block; }
+  .pin{ cursor:pointer; }
+  .pin circle.dot{ transition:transform .2s ease; transform-origin:center; transform-box:fill-box; }
+  .pin:hover circle.dot{ transform:scale(1.18); }
+  .map-hint{
+    text-align:center; font-family:'Space Mono',monospace;
+    font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--ink-soft); margin:4px 0 0;
+  }
+
+  .day{ padding:46px 0 10px; }
+  .day-head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  .day-num{
+    font-family:'DM Serif Display',serif; font-size:2rem; color:var(--coral-dk); line-height:1;
+  }
+  .day-date{ font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--ocean-dk); letter-spacing:0.08em; }
+  .day-name{
+    font-family:'Space Mono',monospace; font-size:0.62rem; letter-spacing:0.24em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .day-cap{
+    font-family:'Gochi Hand',cursive; font-size:clamp(1.2rem,3.4vw,1.6rem);
+    color:var(--ink); line-height:1.4; margin-bottom:18px; max-width:620px;
+  }
+  .prints{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:14px; }
+  .print{
+    background:#fff; padding:8px 8px 10px; border-radius:3px;
+    box-shadow:0 8px 18px rgba(71,55,34,0.16);
+    transform:rotate(var(--r,0deg)); transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
+  }
+  .print:hover{ transform:rotate(0) translateY(-3px) scale(1.02); box-shadow:0 14px 26px rgba(71,55,34,0.24); }
+  .print .pic{ position:relative; width:100%; aspect-ratio:1/1; overflow:hidden; background:var(--parch-2); }
+  .print .pic img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .print .pic .ph{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:8px; color:var(--ink-soft); font-size:0.58rem; letter-spacing:0.04em;
+    font-family:'Space Mono',monospace;
+  }
+  .print .stamp{
+    position:absolute; right:10px; bottom:10px; z-index:2;
+    font-family:'Space Mono',monospace; font-size:0.56rem; font-weight:700;
+    color:#ff9d2e; text-shadow:0 0 2px rgba(0,0,0,0.35); letter-spacing:0.02em;
+  }
+
+  /* ===== BRIDGE ===== */
+  .bridge{ text-align:center; padding:54px 22px; }
+  .bridge p{
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(1.3rem,4vw,1.9rem); line-height:1.45; color:var(--ocean-dk);
+    max-width:620px; margin:0 auto;
+  }
+
+  /* ===== WEDDING COUNTDOWN ===== */
+  .countdown-sec{
+    text-align:center; padding:66px 22px;
     background:
-      radial-gradient(700px 380px at 50% 0%, rgba(232,176,75,0.18), transparent 65%),
-      linear-gradient(180deg, #fff7ea, #f6e7cf);
-    border-top:1px solid rgba(201,138,46,0.25);
-    border-bottom:1px solid rgba(201,138,46,0.25);
-    padding:88px 24px;
+      radial-gradient(500px 260px at 50% 0%, rgba(199,154,62,0.16), transparent 70%),
+      linear-gradient(180deg,#f7eed6,#efe2c6);
+    border-top:2px dashed rgba(71,55,34,0.25);
+    border-bottom:2px dashed rgba(71,55,34,0.25);
   }
-  .wed-rings{ font-size:1.6rem; letter-spacing:0.1em; color:var(--gold-dk); margin-bottom:12px; }
-  .wed-eyebrow{
-    font-size:0.66rem; font-weight:600; letter-spacing:0.34em;
-    text-transform:uppercase; color:var(--gold-dk); margin-bottom:16px;
-  }
-  .wed-line{
-    font-family:'Fraunces',serif; font-style:italic;
-    font-size:clamp(1.6rem,5.5vw,2.8rem);
-    line-height:1.25; color:var(--rose-dk);
-    max-width:620px; margin:0 auto 26px;
-  }
-  .countdown{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin:6px 0 10px; }
-  .cd-cell{ min-width:88px; }
   .cd-num{
-    font-family:'Fraunces',serif; font-weight:600;
-    font-size:clamp(2.4rem,9vw,4rem); line-height:1; color:var(--ocean-dk);
+    font-family:'DM Serif Display',serif; font-size:clamp(3rem,13vw,5.5rem);
+    line-height:1; color:var(--coral-dk);
   }
   .cd-lbl{
-    font-size:0.58rem; font-weight:600; letter-spacing:0.2em;
-    text-transform:uppercase; color:var(--ink-soft); margin-top:6px;
+    font-family:'Space Mono',monospace; font-size:0.66rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--ink-soft); margin-top:8px;
   }
-  .wed-caption{
-    font-size:0.98rem; color:var(--ink); margin-top:16px; line-height:1.7;
-  }
-  .wed-date{
-    font-family:'Fraunces',serif; font-style:italic;
-    color:var(--gold-dk); font-size:1.05rem; margin-top:4px;
-  }
+  .cd-date{ font-family:'Gochi Hand',cursive; font-size:1.4rem; color:var(--ocean-dk); margin-top:14px; }
 
-  /* ===== HAWAII ===== */
-  .hawaii{
-    text-align:center;
-    background:linear-gradient(180deg, #eaf6f6, #d6eef0);
-    border-bottom:1px solid rgba(28,102,116,0.2);
-    padding:76px 24px;
+  /* ===== WEDDING PLANNING ===== */
+  .planning{ padding:64px 0; }
+  .plan-list{ max-width:520px; margin:22px auto 0; display:flex; flex-direction:column; gap:12px; }
+  .plan-item{
+    display:flex; align-items:center; gap:14px;
+    background:var(--paper); border:1px solid rgba(71,55,34,0.15);
+    border-radius:10px; padding:14px 16px;
+    box-shadow:0 6px 14px rgba(71,55,34,0.08);
   }
-  .hawaii .label{ color:var(--ocean-dk); }
-  .hawaii .lead{ color:#204b52; }
-  .hawaii .lead b{ color:var(--ocean-dk); }
-  .haw-count{
-    display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center;
-    margin:26px auto 0; padding:18px 22px;
-    background:rgba(255,255,255,0.7);
-    border:1px dashed rgba(28,102,116,0.4);
-    border-radius:14px;
+  .plan-check{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.8rem; font-weight:700;
   }
-  .haw-count .cd-num{ color:var(--ocean-dk); font-size:clamp(1.9rem,7vw,2.8rem); }
-  .haw-note{ margin-top:16px; font-size:0.9rem; color:#2c6169; font-style:italic; }
-  .haw-live{
-    font-family:'Pacifico',cursive; font-size:clamp(1.8rem,7vw,2.6rem);
-    color:var(--ocean-dk); margin-top:8px;
-  }
+  .plan-item.done .plan-check{ background:var(--palm); color:#fff; }
+  .plan-item.todo .plan-check{ border:2px dashed var(--coral); color:var(--coral); }
+  .plan-item.done .plan-check::after{ content:"\2713"; }
+  .plan-item.todo .plan-check::after{ content:"\25CB"; }
+  .plan-what{ font-weight:600; font-size:0.98rem; color:var(--ink); }
+  .plan-sub{ font-family:'Space Mono',monospace; font-size:0.66rem; color:var(--ink-soft); margin-top:1px; letter-spacing:0.04em; }
 
-  /* ===== GALLERY ===== */
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
-    gap:14px; max-width:920px; margin:32px auto 0;
-  }
-  .frame{
+  /* ===== PROMISE ===== */
+  .promise{ padding:72px 22px 40px; }
+  .promise-card{
+    max-width:600px; margin:0 auto; position:relative;
     background:var(--paper);
-    padding:9px 9px 12px;
-    border-radius:5px;
-    box-shadow:0 9px 20px rgba(74,55,48,0.14);
-    transform:rotate(var(--r,0deg));
-    transition:transform .3s ease, box-shadow .3s ease;
+    border:1px solid rgba(199,154,62,0.4);
+    border-radius:10px; padding:40px 34px;
+    box-shadow:0 20px 44px rgba(71,55,34,0.18);
   }
-  .frame:hover{ transform:rotate(0) translateY(-3px); box-shadow:0 15px 28px rgba(74,55,48,0.2); }
-  .frame:nth-child(3n){ --r:1.6deg; }
-  .frame:nth-child(3n+1){ --r:-1.6deg; }
-  .frame:nth-child(4n){ --r:1deg; }
-  .frame .pic{
-    width:100%; aspect-ratio:4/5; border-radius:3px; overflow:hidden;
-    background:var(--sand-2); position:relative;
+  .promise-card::before{
+    content:""; position:absolute; inset:12px; border:1px solid rgba(71,55,34,0.14);
+    border-radius:6px; pointer-events:none;
   }
-  .frame .pic img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .frame .pic .ph{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    text-align:center; padding:8px; color:var(--ink-soft);
-    font-size:0.6rem; letter-spacing:0.04em;
+  .promise-tag{
+    font-family:'Space Mono',monospace; font-size:0.62rem; letter-spacing:0.26em;
+    text-transform:uppercase; color:var(--coral-dk); margin-bottom:16px;
   }
+  .promise-card p{
+    font-family:'DM Serif Display',serif; font-size:clamp(1.12rem,2.9vw,1.4rem);
+    line-height:1.7; color:var(--ink); margin-bottom:16px;
+  }
+  .promise-card p.plain{
+    font-family:'Karla',sans-serif; font-size:1rem; line-height:1.8; color:var(--ink);
+    font-weight:400;
+  }
+  .promise-card .sign{ font-family:'Gochi Hand',cursive; font-size:1.6rem; color:var(--coral-dk); margin-top:6px; }
 
-  /* ===== CLOSING NOTE ===== */
-  .closing{ text-align:center; padding:78px 24px 40px; }
-  .closing .note{
-    max-width:520px; margin:0 auto;
-    background:var(--paper);
-    border-radius:12px;
-    box-shadow:0 18px 40px rgba(74,55,48,0.16);
-    padding:34px 30px;
-    border:1px solid rgba(232,176,75,0.35);
-  }
-  .closing .note p{
-    font-family:'Fraunces',serif; font-style:italic;
-    font-size:clamp(1.1rem,3vw,1.35rem);
-    line-height:1.7; color:var(--ink);
-  }
-  .closing .sign{
-    font-family:'Pacifico',cursive;
-    font-size:1.5rem; color:var(--rose-dk); margin-top:16px;
-  }
+  footer{ text-align:center; padding:30px 22px 64px; }
+  .foot-mono{ font-family:'Gochi Hand',cursive; font-size:2rem; color:var(--coral); opacity:0.7; }
+  .foot-note{ font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:6px; }
 
-  footer{ text-align:center; padding:24px 24px 60px; }
-  .mono{ font-family:'Pacifico',cursive; font-size:2rem; color:var(--amber); opacity:0.6; }
-  .foot-note{ font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:6px; }
+  /* ===== LIGHTBOX ===== */
+  #lightbox{
+    position:fixed; inset:0; z-index:100; display:none;
+    align-items:center; justify-content:center; padding:24px;
+    background:rgba(40,28,14,0.86); cursor:zoom-out;
+  }
+  #lightbox.open{ display:flex; }
+  #lightbox img{ max-width:92vw; max-height:88vh; border:8px solid #fff; border-radius:3px; box-shadow:0 20px 50px rgba(0,0,0,0.6); }
 
   .reveal{ opacity:0; transform:translateY(22px); transition:opacity .9s ease, transform .9s ease; }
   .reveal.on{ opacity:1; transform:none; }
 
-  @media (prefers-reduced-motion:reduce){
-    *{ animation:none !important; }
-    .reveal{ opacity:1; transform:none; }
-  }
+  @media (prefers-reduced-motion:reduce){ *{ animation:none !important; } .reveal{ opacity:1; transform:none; } }
 </style>
 </head>
 <body>
-
-<div id="sky"></div>
 
 <main>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="sun"></div>
-    <div class="content">
-      <p class="eyebrow">Month Twenty-Six &nbsp;·&nbsp; September 6, 2026</p>
-      <h1>our september</h1>
-      <p class="hero-greet">happy twenty-six months, cutie &#10084;&#65039;</p>
-      <p class="sub">Two birthdays, one plane to Hawaii, and the countdown I think about most. <b>Twenty-six months in, and the best parts are all still ahead.</b></p>
-      <p class="scroll-cue">scroll<span class="arrow"></span></p>
-    </div>
-    <div class="palms" aria-hidden="true">
-      <svg viewBox="0 0 1200 150" preserveAspectRatio="none">
-        <path d="M0,150 L0,120 C120,60 220,60 300,150 Z" fill="#7a3b3f" opacity="0.55"/>
-        <path d="M1200,150 L1200,110 C1080,50 980,55 900,150 Z" fill="#7a3b3f" opacity="0.55"/>
-        <path d="M600,150 C580,90 560,70 600,40 C640,70 620,90 600,150 Z" fill="#5a2f33" opacity="0.5"/>
-      </svg>
-    </div>
+    <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#b4543c" stroke-width="2"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#1c6674" stroke-width="1" stroke-dasharray="2 4"/>
+      <polygon points="50,12 57,50 50,46 43,50" fill="#b4543c"/>
+      <polygon points="50,88 43,50 50,54 57,50" fill="#1c6674"/>
+      <circle cx="50" cy="50" r="4" fill="#c79a3e"/>
+    </svg>
+    <p class="eyebrow">Month Twenty-Seven &nbsp;&middot;&nbsp; October 6, 2026</p>
+    <h1>the island &amp; a promise</h1>
+    <p class="greet">happy twenty-seven months, cutie</p>
+    <p class="sub">This month we ran away to an island for five days, and we start planning the rest of our life. Twenty-seven months in, and I am somehow still the lucky one.</p>
   </section>
 
-  <!-- BIRTHDAYS -->
-  <section class="band">
-    <div class="center reveal">
-      <p class="label">first, the cake</p>
-      <p class="lead">It is birthday month for both of us. Tap the candles and blow them out, one wish each.</p>
-    </div>
-    <div class="cakes reveal">
-      <div class="cake-card her">
-        <div class="cake-when">September 26</div>
-        <div class="cake-who">pooo day</div>
-        <div class="cake" data-wish="happy birthday to my queen, love of my life, my everything">
-          <div class="candles">
-            <div class="candle"><span class="flame"></span></div>
-            <div class="candle"><span class="flame"></span></div>
-            <div class="candle"><span class="flame"></span></div>
-          </div>
-          <div class="tiers"><div class="tier top"></div><div class="tier bot"></div></div>
-          <div class="plate"></div>
-        </div>
-        <div class="wish"></div>
-        <div class="cake-hint">tap the candles</div>
+  <!-- TRIP: MAP JOURNEY -->
+  <section class="trip">
+    <div class="wrap">
+      <p class="sec-kicker reveal">September 23 to 27 &nbsp;&middot;&nbsp; our hawaii</p>
+      <h2 class="sec-title reveal">five days, one map</h2>
+      <div class="mapbox reveal">
+        <svg viewBox="0 0 560 300" aria-label="map of the trip">
+          <!-- ocean ripples -->
+          <g stroke="#6cbcc7" stroke-width="1.4" fill="none" opacity="0.5">
+            <path d="M30,250 q14,-9 28,0 t28,0"/>
+            <path d="M440,70 q14,-9 28,0 t28,0"/>
+            <path d="M60,60 q14,-9 28,0 t28,0"/>
+          </g>
+          <!-- island -->
+          <path d="M120,150 C120,90 190,70 250,80 C320,70 400,95 430,150 C455,195 400,245 320,245 C250,250 170,250 135,215 C112,192 120,175 120,150 Z"
+                fill="#e6d7af" stroke="#b79a5e" stroke-width="2"/>
+          <path d="M150,160 C170,130 220,120 250,128 C300,118 360,135 385,165 C360,150 300,150 255,156 C215,150 175,152 150,160 Z"
+                fill="#8fae6f" opacity="0.65"/>
+          <!-- dashed route -->
+          <path id="route" d="M150,210 L215,165 L285,195 L350,130 L410,170"
+                fill="none" stroke="#b4543c" stroke-width="2.4" stroke-dasharray="3 7" stroke-linecap="round"/>
+          <!-- pins -->
+          <g class="pin" data-target="day1"><circle class="dot" cx="150" cy="210" r="13" fill="#d9745a" stroke="#fff" stroke-width="2"/><text x="150" y="214" text-anchor="middle" font-family="'Space Mono',monospace" font-size="12" fill="#fff" font-weight="700">1</text></g>
+          <g class="pin" data-target="day2"><circle class="dot" cx="215" cy="165" r="13" fill="#d9745a" stroke="#fff" stroke-width="2"/><text x="215" y="169" text-anchor="middle" font-family="'Space Mono',monospace" font-size="12" fill="#fff" font-weight="700">2</text></g>
+          <g class="pin" data-target="day3"><circle class="dot" cx="285" cy="195" r="13" fill="#d9745a" stroke="#fff" stroke-width="2"/><text x="285" y="199" text-anchor="middle" font-family="'Space Mono',monospace" font-size="12" fill="#fff" font-weight="700">3</text></g>
+          <g class="pin" data-target="day4"><circle class="dot" cx="350" cy="130" r="14" fill="#c79a3e" stroke="#fff" stroke-width="2"/><text x="350" y="134" text-anchor="middle" font-family="'Space Mono',monospace" font-size="12" fill="#fff" font-weight="700">4</text></g>
+          <g class="pin" data-target="day5"><circle class="dot" cx="410" cy="170" r="13" fill="#d9745a" stroke="#fff" stroke-width="2"/><text x="410" y="174" text-anchor="middle" font-family="'Space Mono',monospace" font-size="12" fill="#fff" font-weight="700">5</text></g>
+        </svg>
       </div>
+      <p class="map-hint reveal">tap a pin to jump to the day</p>
 
-      <div class="cake-card him">
-        <div class="cake-when">September 23</div>
-        <div class="cake-who">his day</div>
-        <div class="cake" data-wish="older, luckier, still all yours">
-          <div class="candles">
-            <div class="candle"><span class="flame"></span></div>
-            <div class="candle"><span class="flame"></span></div>
-            <div class="candle"><span class="flame"></span></div>
-          </div>
-          <div class="tiers"><div class="tier top"></div><div class="tier bot"></div></div>
-          <div class="plate"></div>
-        </div>
-        <div class="wish"></div>
-        <div class="cake-hint">tap the candles</div>
+      <div id="trip-days"></div>
+    </div>
+  </section>
+
+  <!-- BRIDGE back to normal life -->
+  <section class="bridge reveal">
+    <p>Then the island let us go, and it was back to screens and time zones. Worth every goodbye, because look at what we are building toward.</p>
+  </section>
+
+  <!-- WEDDING COUNTDOWN -->
+  <section class="countdown-sec reveal">
+    <p class="sec-kicker">still counting</p>
+    <div class="cd-num" id="wedDays">--</div>
+    <div class="cd-lbl">days until I marry you</div>
+    <div class="cd-date">March 14, 2027</div>
+  </section>
+
+  <!-- WEDDING PLANNING -->
+  <section class="planning">
+    <div class="wrap">
+      <p class="sec-kicker reveal">new this month</p>
+      <h2 class="sec-title reveal">we start planning</h2>
+      <div class="plan-list reveal">
+        <div class="plan-item done"><span class="plan-check"></span><div><div class="plan-what">The date</div><div class="plan-sub">locked. 03 / 14 / 2027</div></div></div>
+        <div class="plan-item done"><span class="plan-check"></span><div><div class="plan-what">The person</div><div class="plan-sub">obviously you</div></div></div>
+        <div class="plan-item todo"><span class="plan-check"></span><div><div class="plan-what">The venue</div><div class="plan-sub">coming soon, together</div></div></div>
+        <div class="plan-item todo"><span class="plan-check"></span><div><div class="plan-what">The guest list</div><div class="plan-sub">coming soon, together</div></div></div>
+        <div class="plan-item todo"><span class="plan-check"></span><div><div class="plan-what">The first dance song</div><div class="plan-sub">now accepting your auditions</div></div></div>
       </div>
     </div>
-    <p class="birthday-tie reveal">Here is my favorite part of the timing: we fly out on my birthday, and three days later yours lands us on a beach in Hawaii. Two whole birthdays, most of them with sand under our feet.</p>
   </section>
 
-  <!-- WEDDING HIGHLIGHT -->
-  <section class="wedding reveal">
-    <div class="wed-rings">&#128141;</div>
-    <p class="wed-eyebrow">the one that matters most</p>
-    <div class="wed-line">and then, the part I cannot wait for: I get to marry you.</div>
-    <div class="countdown">
-      <div class="cd-cell"><div class="cd-num" id="wedDays">--</div><div class="cd-lbl">days</div></div>
-    </div>
-    <div class="wed-caption">until I marry you</div>
-    <div class="wed-date">March 14, 2027</div>
-  </section>
-
-  <!-- HAWAII -->
-  <section class="hawaii reveal">
-    <p class="label">but first</p>
-    <p class="lead"><b>Hawaii.</b> You, me, an ocean, and absolutely nowhere we have to be. We lift off from LAX on the 23rd.</p>
-    <div class="haw-count" id="hawCount">
-      <div class="cd-cell"><div class="cd-num" id="hawDays">--</div><div class="cd-lbl">days</div></div>
-      <div class="cd-cell"><div class="cd-num" id="hawHrs">--</div><div class="cd-lbl">hours</div></div>
-      <div class="cd-cell"><div class="cd-num" id="hawMin">--</div><div class="cd-lbl">minutes</div></div>
-    </div>
-    <div class="haw-live" id="hawLive" hidden>aloha, we made it &#127802;</div>
-    <p class="haw-note">and your birthday falls right in the middle of it, exactly where it should be.</p>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="band">
-    <div class="center reveal" style="margin-bottom:10px;">
-      <p class="label">the month, in frames</p>
-      <p class="lead" style="font-size:1.02rem;">Fifteen little spaces waiting for your favorites.</p>
-    </div>
-    <div class="gallery reveal" id="gallery"></div>
-  </section>
-
-  <!-- CLOSING NOTE -->
-  <section class="closing reveal">
-    <div class="note">
-      <p>Happy 26 months, my cutie poo. We have got a beach, a wedding, and a whole life still ahead of us, so much good still coming. And I get to do every bit of it next to the most prettiest human I have ever laid eyes on. I love you.</p>
+  <!-- PROMISE -->
+  <section class="promise">
+    <div class="promise-card reveal">
+      <p class="promise-tag">a promise, and I mean it</p>
+      <p>Here is the one that matters, cutie, and it is not a someday promise. It is a starting now one.</p>
+      <p class="plain">I am going to work as hard as I can to close this gap between us. I am going to push to switch companies and get myself to the Bay, to you. I cannot promise you the exact month, but I can promise you the effort, every single day, until the distance is just a thing we used to do. No more airport goodbyes. Just us, same city, same boring wonderful mornings.</p>
       <div class="sign">your chonks &#10084;&#65039;</div>
     </div>
   </section>
 
   <footer>
-    <div class="mono">S &nbsp;&#9825;&nbsp; A</div>
-    <p class="foot-note">month twenty-six &nbsp;·&nbsp; and counting</p>
+    <div class="foot-mono">S &nbsp;&#9825;&nbsp; A</div>
+    <p class="foot-note">month twenty-seven &nbsp;&middot;&nbsp; and counting</p>
   </footer>
 
 </main>
 
+<div id="lightbox"><img src="" alt=""/></div>
+
 <script>
-/* rising balloons */
-(function(){
-  const sky = document.getElementById('sky');
-  const colors = ['#e8899b','#e8b04b','#2f8f9d','#f2955a','#f7b7cf'];
-  const N = window.innerWidth < 560 ? 7 : 12;
-  for(let i=0;i<N;i++){
-    const b = document.createElement('div');
-    b.className = 'balloon';
-    b.style.left = Math.random()*100 + 'vw';
-    b.style.background = 'radial-gradient(circle at 35% 30%, rgba(255,255,255,0.6), ' + colors[i % colors.length] + ' 70%)';
-    const dur = 16 + Math.random()*14;
-    b.style.animationDuration = dur + 's';
-    b.style.animationDelay = (-Math.random()*dur) + 's';
-    const s = 0.7 + Math.random()*0.8;
-    b.style.width = (34*s) + 'px';
-    b.style.height = (44*s) + 'px';
-    sky.appendChild(b);
-  }
-})();
+/* day data: 5 days, 4 photos each (1-20) */
+const days = [
+  {n:1, date:'09 / 23', name:'arrival', cap:'We flew out on my birthday. Honestly the best gift I have ever handed myself.'},
+  {n:2, date:'09 / 24', name:'first full day', cap:'You, the water, and that look on your face I would do just about anything to keep.'},
+  {n:3, date:'09 / 25', name:'the middle', cap:'Somewhere around here I stopped checking the time. Just us, no clock.'},
+  {n:4, date:'09 / 26', name:'her birthday', cap:'Your birthday, on an island, exactly where it should be. Happy birthday, cutie.'},
+  {n:5, date:'09 / 27', name:'last morning', cap:'Neither of us wanted to leave. That is how you know it was a good one.'}
+];
+const tilts = ['-2.5deg','1.8deg','-1.2deg','2.2deg'];
 
-/* build 15 photo frames with graceful placeholders */
 (function(){
-  const g = document.getElementById('gallery');
-  if(!g) return;
-  for(let i=1;i<=15;i++){
-    const f = document.createElement('div');
-    f.className = 'frame';
-    f.innerHTML =
-      '<div class="pic">' +
-        '<img src="pics/' + i + '.jpg" alt="" ' +
-        'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"/>' +
-        '<div class="ph" style="display:none;">pics/' + i + '.jpg</div>' +
-      '</div>';
-    g.appendChild(f);
-  }
-})();
-
-/* blow out the candles */
-(function(){
-  document.querySelectorAll('.cake').forEach(cake => {
-    const candles = cake.querySelectorAll('.candle');
-    const wishText = cake.getAttribute('data-wish');
-    const wishEl = cake.parentElement.querySelector('.wish');
-    cake.addEventListener('click', e => {
-      const lit = [...candles].filter(c => !c.classList.contains('out'));
-      if(lit.length){
-        lit[0].classList.add('out');
-      }
-      const allOut = [...candles].every(c => c.classList.contains('out'));
-      if(allOut && wishEl){
-        wishEl.textContent = wishText;
-        wishEl.classList.add('show');
-      }
-    });
+  const host = document.getElementById('trip-days');
+  let idx = 1;
+  days.forEach(d => {
+    const art = document.createElement('article');
+    art.className = 'day reveal';
+    art.id = 'day' + d.n;
+    let prints = '';
+    for(let k=0;k<4;k++){
+      const i = idx++;
+      prints +=
+        '<div class="print" style="--r:' + tilts[k] + '">' +
+          '<div class="pic">' +
+            '<img src="pics/' + i + '.jpg" alt="" ' +
+            'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';"/>' +
+            '<div class="ph" style="display:none;">pics/' + i + '.jpg</div>' +
+            '<span class="stamp">' + d.date.replace(/ /g,'') + ' \'26</span>' +
+          '</div>' +
+        '</div>';
+    }
+    art.innerHTML =
+      '<div class="day-head"><span class="day-num">' + d.n + '</span>' +
+      '<span class="day-date mono">' + d.date + ' / 2026</span>' +
+      '<span class="day-name">' + d.name + '</span></div>' +
+      '<p class="day-cap">' + d.cap + '</p>' +
+      '<div class="prints">' + prints + '</div>';
+    host.appendChild(art);
   });
 })();
 
-/* live countdowns */
+/* map pins scroll to day */
+document.querySelectorAll('.pin').forEach(pin => {
+  pin.addEventListener('click', () => {
+    const t = document.getElementById(pin.getAttribute('data-target'));
+    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+/* lightbox: tap a loaded photo to enlarge */
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbImg = lb.querySelector('img');
+  document.addEventListener('click', e => {
+    const print = e.target.closest('.print');
+    if(print){
+      const img = print.querySelector('img');
+      if(img && img.style.display !== 'none' && img.getAttribute('src')){
+        lbImg.src = img.src; lb.classList.add('open');
+      }
+      return;
+    }
+    if(e.target === lb || e.target === lbImg){ lb.classList.remove('open'); lbImg.src=''; }
+  });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape'){ lb.classList.remove('open'); lbImg.src=''; } });
+})();
+
+/* wedding countdown (continued) */
 (function(){
   const wedding = new Date(2027, 2, 14, 0, 0, 0); // March 14, 2027
-  const hawaii  = new Date(2026, 8, 23, 0, 0, 0); // September 23, 2026
-  const DAY = 86400000, HR = 3600000, MIN = 60000;
-
-  const wedDays = document.getElementById('wedDays');
-  const hawDays = document.getElementById('hawDays');
-  const hawHrs  = document.getElementById('hawHrs');
-  const hawMin  = document.getElementById('hawMin');
-  const hawCount = document.getElementById('hawCount');
-  const hawLive = document.getElementById('hawLive');
-
-  function pad(n){ return (n < 10 ? '0' : '') + n; }
-
+  const el = document.getElementById('wedDays');
   function tick(){
-    const now = new Date();
-
-    let wd = wedding - now;
-    if(wedDays){
-      wedDays.textContent = wd > 0 ? Math.ceil(wd / DAY) : 0;
-    }
-
-    let hd = hawaii - now;
-    if(hd > 0){
-      if(hawDays) hawDays.textContent = Math.floor(hd / DAY);
-      if(hawHrs)  hawHrs.textContent  = pad(Math.floor((hd % DAY) / HR));
-      if(hawMin)  hawMin.textContent  = pad(Math.floor((hd % HR) / MIN));
-    } else {
-      if(hawCount) hawCount.hidden = true;
-      if(hawLive)  hawLive.hidden = false;
-    }
+    const d = wedding - new Date();
+    if(el) el.textContent = d > 0 ? Math.ceil(d / 86400000) : 0;
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick, 60000);
 })();
 
 /* reveal on scroll */
 (function(){
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
-    });
-  }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
-  els.forEach(el => io.observe(el));
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  // observe existing and dynamically added reveals
+  const observeAll = () => document.querySelectorAll('.reveal:not(.on)').forEach(el => io.observe(el));
+  observeAll();
+  setTimeout(observeAll, 50);
 })();
 </script>
 </body>
